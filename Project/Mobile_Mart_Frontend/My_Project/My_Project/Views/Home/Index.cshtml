@@ -1,0 +1,662 @@
+﻿@model DashboardViewModel
+@{
+    ViewData["Title"] = "E-Commerce Dashboard";
+}
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<!-- Chart.js - MUST be loaded BEFORE your script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    :root {
+        --bg-offwhite: #fafbfc;
+        --card-bg: #ffffff;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+        --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.08);
+        --radius: 16px;
+        --transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-offwhite);
+        color: #1f2937;
+        padding: 30px 20px;
+        margin: 0;
+    }
+
+    .dashboard-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* Header */
+    .dashboard-title {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 2.2rem;
+        color: #111827;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(90deg, #4f46e5, #ec4899, #f59e0b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        padding-bottom: 12px;
+    }
+
+        .dashboard-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #4f46e5, #ec4899);
+            border-radius: 2px;
+        }
+
+    /* Compact Stat Cards */
+    .stat-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .stat-card {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 20px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid #f0f2f5;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        height: 130px;
+    }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+        }
+
+    .stat-icon-box {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        font-size: 22px;
+        transition: var(--transition);
+        color: white;
+        font-weight: bold;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 6px;
+        color: #4b5563;
+    }
+
+    .stat-value {
+        font-family: 'Manrope', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin: 0;
+        line-height: 1;
+    }
+
+    /* Color Themes */
+    .stat-card:nth-child(1) {
+        border-top-color: #4f46e5;
+    }
+
+        .stat-card:nth-child(1) .stat-icon-box {
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+        }
+
+        .stat-card:nth-child(1) .stat-value {
+            color: #4f46e5;
+        }
+
+    .stat-card:nth-child(2) {
+        border-top-color: #10b981;
+    }
+
+        .stat-card:nth-child(2) .stat-icon-box {
+            background: linear-gradient(135deg, #10b981, #34d399);
+        }
+
+        .stat-card:nth-child(2) .stat-value {
+            color: #10b981;
+        }
+
+    .stat-card:nth-child(3) {
+        border-top-color: #f59e0b;
+    }
+
+        .stat-card:nth-child(3) .stat-icon-box {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+        }
+
+        .stat-card:nth-child(3) .stat-value {
+            color: #f59e0b;
+        }
+
+    .stat-card:nth-child(4) {
+        border-top-color: #06b6d4;
+    }
+
+        .stat-card:nth-child(4) .stat-icon-box {
+            background: linear-gradient(135deg, #06b6d4, #22d3ee);
+        }
+
+        .stat-card:nth-child(4) .stat-value {
+            color: #06b6d4;
+        }
+
+    .stat-card:nth-child(5) {
+        border-top-color: #ef4444;
+    }
+
+        .stat-card:nth-child(5) .stat-icon-box {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+        }
+
+        .stat-card:nth-child(5) .stat-value {
+            color: #ef4444;
+        }
+
+    /* Chart Cards */
+    .chart-card {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+        border: 1px solid #f0f2f5;
+        transition: var(--transition);
+        position: relative;
+    }
+
+        .chart-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            border-radius: var(--radius) var(--radius) 0 0;
+            opacity: 0.8;
+        }
+
+        .chart-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+    .chart-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .chart-title {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: #111827;
+        margin: 0;
+    }
+
+    /* Data Cards */
+    .data-card {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: var(--shadow);
+        border: 1px solid #f0f2f5;
+        transition: var(--transition);
+        position: relative;
+    }
+
+        .data-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+
+        .data-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .data-card:nth-child(1) {
+            border-top: 3px solid #10b981;
+        }
+
+        .data-card:nth-child(2) {
+            border-top: 3px solid #4f46e5;
+        }
+
+    .data-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .data-title {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 1.15rem;
+        color: #111827;
+        margin: 0;
+    }
+
+    /* Tables */
+    .table {
+        margin-bottom: 0;
+        font-size: 0.9rem;
+    }
+
+        .table thead th {
+            background: #f8fafc;
+            color: #374151;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 12px 10px;
+            border: none;
+        }
+
+        .table tbody tr {
+            background: #ffffff;
+            transition: var(--transition);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+            .table tbody tr:hover {
+                background: #f0f9ff;
+                transform: translateX(6px);
+            }
+
+        .table tbody td {
+            padding: 12px 10px;
+            vertical-align: middle;
+            font-weight: 600;
+            color: #1f2937;
+            border: none;
+        }
+
+            .table tbody td:last-child {
+                color: #10b981;
+                font-weight: 700;
+            }
+
+    /* User List */
+    .user-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .user-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px;
+        border-radius: 12px;
+        background: #f8fafc;
+        margin-bottom: 12px;
+        transition: var(--transition);
+        border: 1px solid transparent;
+    }
+
+        .user-item:hover {
+            background: #ffffff;
+            border-color: #dbeafe;
+            transform: translateX(6px);
+        }
+
+    .user-info {
+        flex: 1;
+    }
+
+    .user-name {
+        font-weight: 600;
+        color: #111827;
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+    }
+
+    .user-email {
+        font-size: 0.75rem;
+        color: #6b7280;
+    }
+
+    .badge {
+        font-weight: 700;
+        padding: 0.4em 0.8em;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: linear-gradient(90deg, #4f46e5, #7c3aed);
+        color: white !important;
+    }
+
+    /* Chart Styling */
+    canvas {
+        max-width: 100%;
+        height: auto !important;
+    }
+
+    /* Section Spacing */
+    .section-spacing {
+        margin-top: 40px;
+    }
+
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .stat-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .stat-card {
+            height: 120px;
+            padding: 16px;
+        }
+
+        .stat-value {
+            font-size: 1.3rem;
+        }
+
+        .chart-card,
+        .data-card {
+            padding: 20px;
+        }
+    }
+
+    @@media (max-width: 480px) {
+        .stat-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
+
+<div class="dashboard-container">
+
+    <h1 class="dashboard-title">My Dashboard</h1>
+
+    <!-- COMPACT KPI Stat Cards -->
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-icon-box"><i class="bi bi-people-fill"></i></div>
+            <div class="stat-label">Users</div>
+            <div class="stat-value">@Model.UserCount</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon-box"><i class="bi bi-box-seam"></i></div>
+            <div class="stat-label">Products</div>
+            <div class="stat-value">@Model.ProductCount</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon-box"><i class="bi bi-bag-check-fill"></i></div>
+            <div class="stat-label">Orders</div>
+            <div class="stat-value">@Model.OrderCount</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon-box"><i class="bi bi-tags-fill"></i></div>
+            <div class="stat-label">Brands</div>
+            <div class="stat-value">@Model.BrandCount</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon-box"><i class="bi bi-cart-fill"></i></div>
+            <div class="stat-label">Carts</div>
+            <div class="stat-value">@Model.CartCount</div>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="row g-4 section-spacing">
+        <div class="col-lg-8">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <i class="bi bi-graph-up fs-4" style="color: #8b5cf6;"></i>
+                    <h5 class="chart-title">Sales Trend</h5>
+                </div>
+                <canvas id="salesChart" height="120"></canvas>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <i class="bi bi-pie-chart-fill fs-4" style="color: #ec4899;"></i>
+                    <h5 class="chart-title">Orders by Category</h5>
+                </div>
+                <canvas id="ordersChart" height="250"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Data -->
+    <div class="row g-4 section-spacing">
+        <div class="col-lg-6">
+            <div class="data-card">
+                <div class="data-header">
+                    <i class="bi bi-receipt fs-5" style="color: #10b981;"></i>
+                    <h5 class="data-title">Recent Orders</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Customer</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in Model.RecentOrders)
+                            {
+                                <tr>
+                                    <td>@order.OrderId</td>
+                                    <td>@order.FullName</td>
+                                    <td class="text-success fw-bold">$@order.TotalAmount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="data-card">
+                <div class="data-header">
+                    <i class="bi bi-people fs-5" style="color: #4f46e5;"></i>
+                    <h5 class="data-title">Recent Users</h5>
+                </div>
+                <ul class="user-list">
+                    @foreach (var user in Model.RecentUsers)
+                    {
+                        <li class="user-item">
+                            <div class="user-info">
+                                <div class="user-name">@user.FullName</div>
+                                <div class="user-email">@user.Email</div>
+                            </div>
+                            <span class="badge">@user.Role</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // SALES CHART - Fixed: added "data:" property
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        new Chart(salesCtx, {
+            type: 'line',
+            data: {  // ⬅️ THIS WAS MISSING!
+                labels: @Html.Raw(Json.Serialize(Model.SalesMonths)),
+                datasets: [{
+                    label: 'Revenue ($)',
+                    data: @Html.Raw(Json.Serialize(Model.SalesData)),
+                    borderColor: '#8b5cf6',
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#8b5cf6',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            font: {
+                                family: 'Inter',
+                                size: 11,
+                                weight: '600'
+                            },
+                            color: '#374151'
+                        }
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        backgroundColor: '#fff',
+                        titleColor: '#1f2937',
+                        bodyColor: '#1f2937',
+                        borderColor: '#e5e7eb',
+                        borderWidth: 1,
+                        boxPadding: 6,
+                        cornerRadius: 8
+                    }
+                },
+                interaction: {
+                    mode: 'nearest',
+                    intersect: false
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: '#f3f4f6'
+                        },
+                        ticks: {
+                            color: '#6b7280',
+                            font: {
+                                family: 'Inter',
+                                size: 10
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#f3f4f6'
+                        },
+                        ticks: {
+                            color: '#6b7280',
+                            font: {
+                                family: 'Inter',
+                                size: 10
+                            },
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // ORDERS BY CATEGORY - Fixed: added "data:" property
+        const ordersCtx = document.getElementById('ordersChart').getContext('2d');
+        new Chart(ordersCtx, {
+            type: 'doughnut',
+            data: {  // ⬅️ THIS WAS MISSING!
+                labels: @Html.Raw(Json.Serialize(Model.CategoryLabels)),
+                datasets: [{
+                    data: @Html.Raw(Json.Serialize(Model.CategoryData)),
+                    backgroundColor: [
+                        '#10b981',
+                        '#f59e0b',
+                        '#06b6d4',
+                        '#ef4444',
+                        '#8b5cf6',
+                        '#ec4899'
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: 'Inter',
+                                size: 11,
+                                weight: '600'
+                            },
+                            color: '#374151',
+                            padding: 16
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#fff',
+                        titleColor: '#1f2937',
+                        bodyColor: '#1f2937',
+                        borderColor: '#e5e7eb',
+                        borderWidth: 1,
+                        boxPadding: 6,
+                        cornerRadius: 8
+                    }
+                },
+                cutout: '70%'
+            }
+        });
+    });
+</script>

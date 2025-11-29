@@ -1,0 +1,469 @@
+﻿@model List<My_Project.Models.UserModel>
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="bg-primary text-white rounded-3 p-4 mb-4 mt-3">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="mb-2 fw-bold">User Details</h1>
+                <p class="mb-0 opacity-75">Manage and organize your users efficiently</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a asp-controller="User" asp-action="AddUser" class="btn btn-light btn-lg">
+                    <i class="bx bx-plus me-2"></i>Create New User
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card bg-primary text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-1 opacity-75">Total Users</h6>
+                            <h3 class="mb-0">@(Model?.Count ?? 0)</h3>
+                        </div>
+                        <div>
+                            <i class="bx bx-user display-6"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card bg-success text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-1 opacity-75">Active Users</h6>
+                            <h3 class="mb-0">@(Model?.Count(u => u.Role != "Inactive") ?? 0)</h3>
+                        </div>
+                        <div>
+                            <i class="bx bx-user-check display-6"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card bg-warning text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-1 opacity-75">Admins</h6>
+                            <h3 class="mb-0">@(Model?.Count(u => u.Role == "Admin") ?? 0)</h3>
+                        </div>
+                        <div>
+                            <i class="bx bx-crown display-6"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card bg-info text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-1">New This Month</h6>
+                            <h3 class="mb-0">12</h3>
+                        </div>
+                        <div>
+                            <i class="bx bx-trending-up display-6"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Alert -->
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bx bx-error-circle me-2"></i>
+            @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bx bx-check-circle me-2"></i>
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Filters and Search -->
+    <div class="bg-light p-4 rounded-3 mb-4">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="position-relative">
+                    <i class="bx bx-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                    <input type="text" id="searchInput" class="form-control ps-5" placeholder="Search users by name, email, or ID...">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <select id="roleFilter" class="form-select">
+                            <option value="">All Roles</option>
+                            <option value="Admin">Admin</option>
+                            <option value="User">User</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="entriesPerPage" class="form-select">
+                            <option value="10">10 per page</option>
+                            <option value="25">25 per page</option>
+                            <option value="50">50 per page</option>
+                            <option value="100">100 per page</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Users Table -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">
+                <i class="bx bx-users me-2"></i>Users Directory
+            </h5>
+            <div class="d-flex align-items-center">
+                <span class="badge bg-primary me-2" id="totalCount">@(Model?.Count ?? 0) users</span>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" onclick="refreshTable()">
+                        <i class="bx bx-refresh me-1"></i>Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover mb-0" id="usersTable">
+                <thead class="table-light">
+                    <tr>
+                        <th class="user-select-none" data-column="userid" role="button">
+                            <i class="bx bx-id-card me-1"></i>User ID
+                            <i class="bx bx-sort opacity-50 ms-1"></i>
+                        </th>
+                        <th class="user-select-none" data-column="fullname" role="button">
+                            <i class="bx bx-user me-1"></i>User
+                            <i class="bx bx-sort opacity-50 ms-1"></i>
+                        </th>
+                        <th class="user-select-none" data-column="email" role="button">
+                            <i class="bx bx-envelope me-1"></i>Email
+                            <i class="bx bx-sort opacity-50 ms-1"></i>
+                        </th>
+                        <th>
+                            <i class="bx bx-phone me-1"></i>Phone
+                        </th>
+                        <th class="user-select-none" data-column="role" role="button">
+                            <i class="bx bx-shield me-1"></i>Role
+                            <i class="bx bx-sort opacity-50 ms-1"></i>
+                        </th>
+
+                        <th class="text-center">
+                            <i class="bx bx-cog me-1"></i>Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var user in Model)
+                        {
+                            <tr data-user-id="@user.UserID" data-role="@user.Role" data-email="@user.Email" data-name="@user.FullName">
+                                <td>
+                                    <span class="badge bg-light text-dark">@user.UserID</span>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3 fw-bold" style="width: 40px; height: 40px;">
+                                            @(user.FullName?.Substring(0, 1).ToUpper() ?? "U")
+                                        </div>
+                                        <div>
+                                            <a asp-controller="User" asp-action="UserDetails" asp-route-id="@user.UserID"
+                                               class="fw-bold text-decoration-none">
+                                                @user.FullName
+                                            </a>
+                                            <div class="text-muted small">ID: @user.UserID</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div>@user.Email</div>
+                                        <small class="text-muted">
+                                            <i class="bx bx-time-five me-1"></i>Last login: 2 hours ago
+                                        </small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="text-muted">
+                                        <i class="bx bx-phone me-1"></i>@user.Phone
+                                    </span>
+                                </td>
+                                <td>
+                                    @{
+                                        var badgeClass = user.Role switch
+                                        {
+                                            "Admin" => "bg-danger",
+                                            "Moderator" => "bg-warning",
+                                            _ => "bg-success"
+                                        };
+                                    }
+                                    <span class="badge @badgeClass rounded-pill px-3 py-2">
+                                        <i class="bx @(user.Role == "Admin" ? "bx-crown" : user.Role == "Moderator" ? "bx-shield" : "bx-user") me-1"></i>
+                                        @user.Role
+                                    </span>
+                                </td>
+
+                                <td class="text-center">
+                                    <div class="btn-group" role="group">
+                                        <a asp-controller="User" asp-action="UserDetails" asp-route-id="@user.UserID"
+                                           class="btn btn-outline-info btn-sm d-inline-flex align-items-center justify-content-center"
+                                           style="width: 35px; height: 35px;" data-bs-toggle="tooltip" title="View Details">
+                                            <i class="bx bx-show"></i>
+                                        </a>
+                                        <a asp-controller="User" asp-action="AddEdit" asp-route-id="@user.UserID"
+                                           class="btn btn-outline-primary btn-sm d-inline-flex align-items-center justify-content-center ms-1"
+                                           style="width: 35px; height: 35px;" data-bs-toggle="tooltip" title="Edit User">
+                                            <i class="bx bx-edit-alt"></i>
+                                        </a>
+
+
+                                        <!-- Delete Button -->
+                                        <button type="button"
+                                                class="btn btn-outline-danger btn-sm"
+                                                onclick="confirmDelete('@user.UserID', '@user.FullName')"
+                                                data-bs-toggle="tooltip" title="Delete User">
+                                            <i class="bx bx-trash-alt"></i>
+                                        </button>
+
+                                        <!-- Delete Confirmation Modal -->
+                                        <div class="modal fade" id="deleteModal" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">
+                                                            <i class="bx bx-trash text-danger me-2"></i>Confirm Delete
+                                                        </h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                    </div>
+                                                    <div class="modal-body text-center">
+                                                        <i class="bx bx-error-circle text-danger display-1"></i>
+                                                        <h6 class="mt-3">Are you absolutely sure?</h6>
+                                                        <p class="text-muted">
+                                                            This will permanently delete the user account for <strong id="deleteUserName"></strong>.
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                        <a id="confirmDeleteBtn" class="btn btn-danger">
+                                                            <i class="bx bx-trash me-1"></i>Delete User
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <script>
+                                            function confirmDelete(userId, fullName) {
+                                                document.getElementById("deleteUserName").innerText = fullName;
+                                                document.getElementById("confirmDeleteBtn").href = '/User/Delete/' + userId;
+                                                var deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+                                                deleteModal.show();
+                                            }
+                                        </script>
+
+
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr id="noUsersRow">
+                            <td colspan="7" class="text-center py-5">
+                                <div class="text-muted">
+                                    <i class="bx bx-user-x display-4 d-block mb-2"></i>
+                                    <h6>No users found</h6>
+                                    <p class="mb-0">Try adjusting your search criteria or add a new user.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="card-footer bg-light">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <span class="text-muted small" id="paginationInfo">
+                        Showing 1 to @(Model?.Count ?? 0) of @(Model?.Count ?? 0) entries
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <nav aria-label="User pagination">
+                        <ul class="pagination pagination-sm justify-content-end mb-0" id="pagination">
+                            <!-- Pagination will be generated by JavaScript -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bx bx-trash text-danger me-2"></i>Confirm Delete
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="bx bx-error-circle text-danger display-1"></i>
+                    <h6 class="mt-3">Are you absolutely sure?</h6>
+                    <p class="text-muted">This action cannot be undone. This will permanently delete the user account for <strong id="deleteUserName"></strong> and remove all associated data.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+
+                <a id="confirmDeleteBtn" class="btn btn-danger">
+                    <i class="bx bx-trash me-1"></i>Delete User
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const roleFilter = document.getElementById('roleFilter');
+        const tableBody = document.getElementById('userTableBody');
+        const totalCount = document.getElementById('totalCount');
+
+        function filterTable() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedRole = roleFilter.value;
+            const rows = tableBody.querySelectorAll('tr:not(#noUsersRow)');
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const userId = row.dataset.userId?.toLowerCase() || '';
+                const name = row.dataset.name?.toLowerCase() || '';
+                const email = row.dataset.email?.toLowerCase() || '';
+                const role = row.dataset.role || '';
+
+                const matchesSearch = userId.includes(searchTerm) ||
+                                    name.includes(searchTerm) ||
+                                    email.includes(searchTerm);
+                const matchesRole = !selectedRole || role === selectedRole;
+
+                if (matchesSearch && matchesRole) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            totalCount.textContent = `${visibleCount} users`;
+
+            // Show/hide no results message
+            const noUsersRow = document.getElementById('noUsersRow');
+            if (noUsersRow) {
+                noUsersRow.style.display = visibleCount === 0 ? '' : 'none';
+            }
+        }
+
+        searchInput.addEventListener('input', filterTable);
+        roleFilter.addEventListener('change', filterTable);
+
+        // Sorting functionality
+        document.querySelectorAll('[data-column]').forEach(header => {
+            header.addEventListener('click', function() {
+                const column = this.dataset.column;
+                const rows = Array.from(tableBody.querySelectorAll('tr:not(#noUsersRow)'));
+                const isAscending = !this.classList.contains('sorted-asc');
+
+                // Remove sort classes from all headers
+                document.querySelectorAll('[data-column]').forEach(h => {
+                    h.classList.remove('sorted-asc', 'sorted-desc');
+                    const icon = h.querySelector('.bx-sort, .bx-sort-up, .bx-sort-down');
+                    if (icon) {
+                        icon.className = 'bx bx-sort opacity-50 ms-1';
+                    }
+                });
+
+                // Add sort class to current header
+                this.classList.add(isAscending ? 'sorted-asc' : 'sorted-desc');
+                const icon = this.querySelector('.bx-sort, .bx-sort-up, .bx-sort-down');
+                if (icon) {
+                    icon.className = `bx ${isAscending ? 'bx-sort-up' : 'bx-sort-down'} ms-1`;
+                }
+
+                rows.sort((a, b) => {
+                    let aVal = a.dataset[column] || '';
+                    let bVal = b.dataset[column] || '';
+
+                    if (isAscending) {
+                        return aVal.localeCompare(bVal);
+                    } else {
+                        return bVal.localeCompare(aVal);
+                    }
+                });
+
+                rows.forEach(row => tableBody.appendChild(row));
+            });
+        });
+    });
+
+    function confirmDelete(userId, userName) {
+        document.getElementById('deleteUserName').textContent = userName;
+        document.getElementById('confirmDeleteBtn').href = `/User/Delete/${userId}`;
+        new bootstrap.Modal(document.getElementById('deleteModal')).show();
+    }
+
+
+
+
+    function confirmDelete(userId, userName) {
+        document.getElementById("deleteUserName").textContent = userName;
+        document.getElementById("confirmDeleteBtn").href = "/User/Delete/" + userId;
+
+        const modal = new bootstrap.Modal(document.getElementById("deleteModal"));
+        modal.show();
+    }
+
+
+</script>

@@ -1,0 +1,2107 @@
+﻿@model List<My_Project.Models.CartModel>
+@{
+    ViewData["Title"] = "Shopping Cart Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    
+    <!-- Premium Header Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="premium-header-card">
+                <div class="premium-header-bg"></div>
+                <div class="premium-header-content">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="d-flex align-items-center">
+                                <div class="premium-cart-icon">
+                                    <i class="bi bi-cart3"></i>
+                                    <div class="premium-icon-glow"></div>
+                                </div>
+                                <div class="ms-4">
+                                    <h1 class="premium-cart-title">Shopping Cart Management</h1>
+                                    <p class="premium-cart-subtitle">
+                                        <i class="bi bi-bag-check me-1"></i>Monitor and manage customer shopping carts
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                            <div class="premium-action-buttons">
+                                <a asp-controller="Cart" asp-action="AddEdit" class="premium-btn premium-btn-primary">
+                                    <i class="bi bi-plus-circle me-2"></i>Add Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="premium-header-particles">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Statistics Cards -->
+    <div class="row mb-4">
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="premium-stat-card stat-primary">
+                <div class="premium-stat-icon">
+                    <i class="bi bi-cart-plus"></i>
+                </div>
+                <div class="premium-stat-content">
+                    <div class="premium-stat-number">@(Model?.Count ?? 0)</div>
+                    <div class="premium-stat-label">Total Cart Items</div>
+                </div>
+                <div class="premium-stat-glow"></div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="premium-stat-card stat-success">
+                <div class="premium-stat-icon">
+                    <i class="bi bi-people"></i>
+                </div>
+                <div class="premium-stat-content">
+                    <div class="premium-stat-number">@(Model?.Select(c => c.UserId).Distinct().Count() ?? 0)</div>
+                    <div class="premium-stat-label">Active Customers</div>
+                </div>
+                <div class="premium-stat-glow"></div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="premium-stat-card stat-warning">
+                <div class="premium-stat-icon">
+                    <i class="bi bi-box-seam"></i>
+                </div>
+                <div class="premium-stat-content">
+                    <div class="premium-stat-number">@(Model?.Select(c => c.ProductId).Distinct().Count() ?? 0)</div>
+                    <div class="premium-stat-label">Unique Products</div>
+                </div>
+                <div class="premium-stat-glow"></div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="premium-stat-card stat-info">
+                <div class="premium-stat-icon">
+                    <i class="bi bi-calculator"></i>
+                </div>
+                <div class="premium-stat-content">
+                    <div class="premium-stat-number">@(Model?.Sum(c => c.Quantity) ?? 0)</div>
+                    <div class="premium-stat-label">Total Quantity</div>
+                </div>
+                <div class="premium-stat-glow"></div>
+            </div>
+        </div>
+    </div>
+
+ @*    <!-- Premium Search and Filter Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="premium-filter-card">
+                <div class="premium-filter-header">
+                    <h6 class="premium-filter-title">
+                        <i class="bi bi-funnel me-2"></i>Search & Filter
+                    </h6>
+                </div>
+                <div class="premium-filter-body">
+                    <div class="row g-3">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="premium-search-box">
+                                <i class="bi bi-search premium-search-icon"></i>
+                                <input type="text" id="searchInput" class="premium-search-input" placeholder="Search customers or products...">
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-6">
+                            <select id="userFilter" class="premium-select">
+                                <option value="">All Customers</option>
+                                @if (Model != null)
+                                {
+                                    foreach (var user in Model.Where(c => c.User != null).Select(c => c.User).DistinctBy(u => u.UserID))
+                                    {
+                                        <option value="@user.UserID">@user.UserID</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-md-6">
+                            <select id="quantityFilter" class="premium-select">
+                                <option value="">All Quantities</option>
+                                <option value="1">1 item</option>
+                                <option value="2-5">2-5 items</option>
+                                <option value="6+">6+ items</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <select id="sortBy" class="premium-select">
+                                <option value="customer">Sort by Customer</option>
+                                <option value="product">Sort by Product</option>
+                                <option value="quantity">Sort by Quantity</option>
+                                <option value="id">Sort by Cart ID</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-md-6">
+                            <button type="button" class="premium-btn premium-btn-outline w-100" onclick="clearFilters()">
+                                <i class="bi bi-arrow-clockwise me-2"></i>Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> *@
+
+
+    <!-- Alert Messages -->
+    @if (TempData["Error"] != null)
+    {
+        <div class="premium-alert alert-danger">
+            <div class="premium-alert-icon">
+                <i class="bx bx-error-circle"></i>
+            </div>
+            <div class="premium-alert-content">
+                <div class="premium-alert-title">Error!</div>
+                <div class="premium-alert-message">@TempData["Error"]</div>
+            </div>
+            <button type="button" class="premium-alert-close" data-bs-dismiss="alert">
+                <i class="bx bx-x"></i>
+            </button>
+        </div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="premium-alert alert-success">
+            <div class="premium-alert-icon">
+                <i class="bx bx-check-circle"></i>
+            </div>
+            <div class="premium-alert-content">
+                <div class="premium-alert-title">Success!</div>
+                <div class="premium-alert-message">@TempData["Success"]</div>
+            </div>
+            <button type="button" class="premium-alert-close" data-bs-dismiss="alert">
+                <i class="bx bx-x"></i>
+            </button>
+        </div>
+    }
+
+    <!-- Premium Cart Items Table -->
+    <div class="row">
+        <div class="col-12">
+            <div class="premium-table-card">
+                <div class="premium-table-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="premium-table-title">
+                            <i class="bi bi-table me-2"></i>Shopping Cart Items
+                        </h6>
+                        <div class="premium-table-actions">
+                            <button type="button" class="premium-btn premium-btn-sm premium-btn-outline" onclick="toggleView()">
+                                <i class="bi bi-grid-3x3-gap me-1"></i>Card View
+                            </button>
+                           @*  <button type="button" class="premium-btn premium-btn-sm premium-btn-outline" onclick="selectAll()">
+                                <i class="bi bi-check-all me-1"></i>Select All
+                            </button> *@
+                        </div>
+                    </div>
+                </div>
+                <div class="premium-table-body">
+                    @if (Model != null && Model.Any())
+                    {
+                        <div class="premium-table-responsive">
+                            <table class="premium-table" id="cartTable">
+                                <thead class="premium-table-head">
+                                    <tr>
+                                      @*   <th class="premium-th">
+                                            <div class="premium-th-content">
+                                                <input type="checkbox" id="selectAllCheckbox" class="premium-checkbox">
+                                            </div>
+                                        </th> *@
+                                        <th class="premium-th sortable" data-sort="id">
+                                            <div class="premium-th-content">
+                                                <i class="bi bi-hash me-2"></i>Cart ID
+                                                <i class="bi bi-chevron-expand premium-sort-icon"></i>
+                                            </div>
+                                        </th>
+                                        <th class="premium-th sortable" data-sort="customer">
+                                            <div class="premium-th-content">
+                                                <i class="bi bi-person me-2"></i>Customer
+                                                <i class="bi bi-chevron-expand premium-sort-icon"></i>
+                                            </div>
+                                        </th>
+                                        <th class="premium-th sortable" data-sort="product">
+                                            <div class="premium-th-content">
+                                                <i class="bi bi-box-seam me-2"></i>Product
+                                                <i class="bi bi-chevron-expand premium-sort-icon"></i>
+                                            </div>
+                                        </th>
+                                        <th class="premium-th sortable" data-sort="quantity">
+                                            <div class="premium-th-content">
+                                                <i class="bi bi-123 me-2"></i>Quantity
+                                                <i class="bi bi-chevron-expand premium-sort-icon"></i>
+                                            </div>
+                                        </th>
+                                        <th class="premium-th">
+                                            <div class="premium-th-content">
+                                                <i class="bi bi-gear me-2"></i>Actions
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="premium-table-body-content">
+                                    @foreach (var cart in Model)
+                                    {
+                                        <tr class="premium-table-row"
+                                            data-cart-id="@cart.CartId"
+                                            data-customer-name="@cart.User?.FullName?.ToLower()"
+                                            data-product-name="@cart.Product?.ProductName?.ToLower()"
+                                            data-quantity="@cart.Quantity"
+                                            data-user-id="@cart.UserId">
+                                           @*  <td class="premium-td">
+                                                <div class="premium-cell-content">
+                                                    <input type="checkbox" class="premium-checkbox row-checkbox" value="@cart.CartId">
+                                                </div>
+                                            </td> *@
+                                            <td class="premium-td">
+                                                <div class="premium-cell-content">
+                                                    <div class="premium-id-badge">
+                                                        <i class="bi bi-cart"></i>
+                                                        #@cart.CartId
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="premium-td">
+                                                <div class="premium-cell-content">
+                                                    <div class="premium-customer-info">
+                                                        <div class="premium-customer-avatar">
+                                                            @if (!string.IsNullOrEmpty(cart?.FullName))
+                                                            {
+                                                                <span>@cart.FullName.Substring(0, 1).ToUpper()</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <i class="bi bi-person"></i>
+                                                            }
+                                                        </div>
+                                                        <div class="premium-customer-details">
+                                                            <div class="premium-customer-name">
+                                                                @if (!string.IsNullOrEmpty(cart?.FullName))
+                                                                {
+                                                                    @cart.FullName
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="text-muted">User #@cart.UserId</span>
+                                                                }
+                                                            </div>
+                                                            <div class="premium-customer-meta">
+                                                                <span class="premium-meta-item">
+                                                                    <i class="bi bi-person-badge me-1"></i>
+                                                                    ID: @cart.UserId
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="premium-td">
+                                                <div class="premium-cell-content">
+                                                    <div class="premium-product-info">
+                                                        <div class="premium-product-avatar">
+                                                            <i class="bi bi-box-seam"></i>
+                                                        </div>
+                                                        <div class="premium-product-details">
+                                                            <div class="premium-product-name">
+                                                                @if (!string.IsNullOrEmpty(cart?.ProductName))
+                                                                {
+                                                                    @cart.ProductName
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="text-muted">Product #@cart.ProductId</span>
+                                                                }
+                                                            </div>
+                                                            <div class="premium-product-meta">
+                                                                <span class="premium-meta-item">
+                                                                    <i class="bi bi-tag me-1"></i>
+                                                                    ID: @cart.ProductId
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="premium-td">
+                                                <div class="premium-cell-content">
+                                                    <div class="premium-quantity-badge quantity-@(cart.Quantity <= 1 ? "low" : cart.Quantity <= 5 ? "medium" : "high")">
+                                                        <i class="bi bi-123 me-2"></i>
+                                                        @cart.Quantity
+                                                        <span class="premium-quantity-label">
+                                                            @(cart.Quantity == 1 ? "item" : "items")
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="premium-td">
+                                                <div class="premium-cell-content">
+                                                    <div class="premium-action-group">
+                                                        <a asp-controller="Cart" asp-action="CartDetails" asp-route-id="@cart.CartId"
+                                                           class="premium-action-btn premium-action-view"
+                                                           data-bs-toggle="tooltip" title="View Details">
+                                                            <i class="bi bi-eye"></i>
+                                                        </a>
+                                                        <a asp-controller="Cart" asp-action="AddEdit" asp-route-id="@cart.CartId"
+                                                           class="premium-action-btn premium-action-edit"
+                                                           data-bs-toggle="tooltip" title="Edit Cart Item">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </a>
+                                                        <button type="button" class="premium-action-btn action-delete"
+                                                                onclick="confirmDelete('@cart.CartId')"
+                                                                data-bs-toggle="tooltip" title="Delete OrderItem">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="premium-empty-state">
+                            <div class="premium-empty-icon">
+                                <i class="bi bi-cart-x"></i>
+                            </div>
+                            <h5 class="premium-empty-title">No Cart Items Found</h5>
+                            <p class="premium-empty-message">There are currently no items in any shopping carts. Cart items will appear here when customers add products to their carts.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Card View (Hidden by default) -->
+    <div class="row" id="cardView" style="display: none;">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var cart in Model)
+            {
+                <div class="col-lg-4 col-md-6 mb-4 cart-card-item"
+                     data-cart-id="@cart.CartId"
+                     data-customer-name="@cart.User?.FullName?.ToLower()"
+                     data-product-name="@cart.Product?.ProductName?.ToLower()"
+                     data-quantity="@cart.Quantity"
+                     data-user-id="@cart.UserId">
+                    <div class="premium-cart-card">
+                        <div class="premium-cart-card-header">
+                            <div class="premium-cart-card-checkbox">
+                                <input type="checkbox" class="premium-checkbox card-checkbox" value="@cart.CartId">
+                            </div>
+                            <div class="premium-cart-card-id">#@cart.CartId</div>
+                        </div>
+                        <div class="premium-cart-card-body">
+                            <div class="premium-cart-customer">
+                                <div class="premium-cart-customer-avatar">
+                                    @if (!string.IsNullOrEmpty(cart?.FullName))
+                                    {
+                                        <span>@cart.FullName.Substring(0, 1).ToUpper()</span>
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-person"></i>
+                                    }
+                                </div>
+                                <div class="premium-cart-customer-info">
+                                    <h6 class="premium-cart-customer-name">
+                                        @if (!string.IsNullOrEmpty(cart?.FullName))
+                                        {
+                                            @cart.FullName
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">User #@cart.UserId</span>
+                                        }
+                                    </h6>
+                                    <div class="premium-cart-customer-id">Customer ID: @cart.UserId</div>
+                                </div>
+                            </div>
+                            <div class="premium-cart-product">
+                                <div class="premium-cart-product-icon">
+                                    <i class="bi bi-box-seam"></i>
+                                </div>
+                                <div class="premium-cart-product-info">
+                                    <div class="premium-cart-product-name">
+                                        @if (!string.IsNullOrEmpty(cart?.ProductName))
+                                        {
+                                            @cart.ProductName
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">Product #@cart.ProductId</span>
+                                        }
+                                    </div>
+                                    <div class="premium-cart-product-id">Product ID: @cart.ProductId</div>
+                                </div>
+                            </div>
+                            <div class="premium-cart-quantity">
+                                <div class="premium-quantity-display quantity-@(cart.Quantity <= 1 ? "low" : cart.Quantity <= 5 ? "medium" : "high")">
+                                    <div class="premium-quantity-number">@cart.Quantity</div>
+                                    <div class="premium-quantity-text">@(cart.Quantity == 1 ? "item" : "items")</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="premium-cart-card-footer">
+                            <div class="premium-card-actions">
+                                <a asp-controller="Cart" asp-action="CartDetails" asp-route-id="@cart.CartId"
+                                   class="premium-card-action premium-card-action-view">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a asp-controller="Cart" asp-action="AddEdit" asp-route-id="@cart.CartId"
+                                   class="premium-card-action premium-card-action-edit">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <button type="button" class="premium-card-action premium-card-action-delete"
+                                        onclick="confirmDelete('@cart.CartId', '@cart.User?.FullName', '@cart.Product?.ProductName')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+   
+</div>
+
+<!-- Premium Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-light border-bottom-0">
+                <h5 class="modal-title">
+                    <i class="bx bx-trash text-danger me-2 fs-4"></i>Confirm Delete
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body text-center px-4">
+                <i class="bx bx-error-circle text-danger display-1"></i>
+                <h6 class="mt-3 fw-bold">Are you absolutely sure?</h6>
+                <p class="text-muted">
+                    This action cannot be undone. This will permanently delete the Cart
+                    and remove all associated data.
+                </p>
+            </div>
+
+            <div class="modal-footer border-top-0 justify-content-center pb-4">
+                <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Cancel</button>
+                <a id="confirmDeleteBtn" class="btn btn-danger px-4">
+                    <i class="bx bx-trash me-1"></i>Delete Cart Item
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Premium Color Palette */
+    :root {
+        --premium-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --premium-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --premium-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --premium-warning: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        --premium-danger: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        --premium-info: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        --premium-dark: #1a1a2e;
+        --premium-light: #ffffff;
+        --premium-gray-50: #f8f9fa;
+        --premium-gray-100: #f1f3f4;
+        --premium-gray-200: #e9ecef;
+        --premium-gray-300: #dee2e6;
+        --premium-gray-400: #ced4da;
+        --premium-gray-500: #adb5bd;
+        --premium-gray-600: #6c757d;
+        --premium-gray-700: #495057;
+        --premium-gray-800: #343a40;
+        --premium-gray-900: #212529;
+        --premium-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        --premium-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        --premium-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+        --premium-shadow-xl: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+        --premium-border-radius: 12px;
+        --premium-border-radius-lg: 16px;
+        --premium-border-radius-xl: 20px;
+        --premium-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --premium-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Premium Breadcrumb */
+    .premium-breadcrumb {
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius);
+        padding: 1rem 1.5rem;
+        margin: 0;
+        box-shadow: var(--premium-shadow-sm);
+        border: 1px solid var(--premium-gray-200);
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .premium-breadcrumb-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .premium-breadcrumb-link {
+        color: var(--premium-gray-600);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--premium-transition);
+        display: flex;
+        align-items: center;
+    }
+
+        .premium-breadcrumb-link:hover {
+            color: #667eea;
+        }
+
+    .premium-breadcrumb-item.active {
+        color: var(--premium-gray-800);
+        font-weight: 600;
+    }
+
+    /* Premium Header */
+    .premium-header-card {
+        position: relative;
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius-xl);
+        box-shadow: var(--premium-shadow-lg);
+        overflow: hidden;
+        border: 1px solid var(--premium-gray-200);
+    }
+
+    .premium-header-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--premium-primary);
+        opacity: 0.95;
+    }
+
+    .premium-header-content {
+        position: relative;
+        z-index: 2;
+        padding: 3rem 2rem;
+        color: var(--premium-light);
+    }
+
+    .premium-cart-icon {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: var(--premium-border-radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .premium-icon-glow {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+        animation: premium-glow 3s ease-in-out infinite alternate;
+    }
+
+    .premium-cart-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(45deg, #ffffff, #f0f0f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .premium-cart-subtitle {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 0;
+    }
+
+    .premium-header-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        animation: premium-float 6s ease-in-out infinite;
+    }
+
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(3) {
+            top: 80%;
+            left: 40%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            top: 40%;
+            left: 70%;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(5) {
+            top: 30%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+    /* Premium Buttons */
+    .premium-btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--premium-border-radius);
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--premium-transition);
+        border: none;
+        cursor: pointer;
+    }
+
+    .premium-btn-sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .premium-btn-primary {
+        background: var(--premium-light);
+        color: #667eea;
+        box-shadow: var(--premium-shadow);
+    }
+
+        .premium-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--premium-shadow-lg);
+            color: #5a67d8;
+        }
+
+    .premium-btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--premium-light);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+    }
+
+        .premium-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            color: var(--premium-light);
+        }
+
+    .premium-btn-outline {
+        background: transparent;
+        color: #667eea;
+        border: 2px solid #667eea;
+    }
+
+        .premium-btn-outline:hover {
+            background: #667eea;
+            color: var(--premium-light);
+            transform: translateY(-2px);
+        }
+
+    .premium-btn-success {
+        background: var(--premium-success);
+        color: var(--premium-light);
+        box-shadow: var(--premium-shadow);
+    }
+
+        .premium-btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--premium-shadow-lg);
+            color: var(--premium-light);
+        }
+
+    .premium-btn-danger {
+        background: var(--premium-danger);
+        color: var(--premium-light);
+        box-shadow: var(--premium-shadow);
+    }
+
+        .premium-btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--premium-shadow-lg);
+            color: var(--premium-light);
+        }
+
+    .premium-action-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    /* Premium Statistics Cards */
+    .premium-stat-card {
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius-lg);
+        padding: 2rem;
+        box-shadow: var(--premium-shadow);
+        border: 1px solid var(--premium-gray-200);
+        position: relative;
+        overflow: hidden;
+        transition: var(--premium-transition);
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+        .premium-stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--premium-shadow-lg);
+        }
+
+    .premium-stat-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: var(--premium-border-radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--premium-light);
+        flex-shrink: 0;
+    }
+
+    .stat-primary .premium-stat-icon {
+        background: var(--premium-primary);
+    }
+
+    .stat-success .premium-stat-icon {
+        background: var(--premium-success);
+    }
+
+    .stat-warning .premium-stat-icon {
+        background: var(--premium-warning);
+    }
+
+    .stat-info .premium-stat-icon {
+        background: var(--premium-info);
+    }
+
+    .premium-stat-number {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--premium-gray-900);
+        margin-bottom: 0.25rem;
+    }
+
+    .premium-stat-label {
+        font-size: 0.875rem;
+        color: var(--premium-gray-600);
+        font-weight: 500;
+    }
+
+    .premium-stat-glow {
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        opacity: 0.1;
+        animation: premium-glow 4s ease-in-out infinite alternate;
+    }
+
+    .stat-primary .premium-stat-glow {
+        background: var(--premium-primary);
+    }
+
+    .stat-success .premium-stat-glow {
+        background: var(--premium-success);
+    }
+
+    .stat-warning .premium-stat-glow {
+        background: var(--premium-warning);
+    }
+
+    .stat-info .premium-stat-glow {
+        background: var(--premium-info);
+    }
+
+    /* Premium Filter Card */
+    .premium-filter-card {
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius-lg);
+        box-shadow: var(--premium-shadow);
+        border: 1px solid var(--premium-gray-200);
+        overflow: hidden;
+    }
+
+    .premium-filter-header {
+        background: linear-gradient(135deg, var(--premium-gray-50), var(--premium-gray-100));
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--premium-gray-200);
+    }
+
+    .premium-filter-title {
+        margin: 0;
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        display: flex;
+        align-items: center;
+    }
+
+    .premium-filter-body {
+        padding: 1.5rem;
+    }
+
+    .premium-search-box {
+        position: relative;
+    }
+
+    .premium-search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--premium-gray-500);
+        font-size: 1rem;
+    }
+
+    .premium-search-input {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 2.5rem;
+        border: 2px solid var(--premium-gray-200);
+        border-radius: var(--premium-border-radius);
+        font-size: 0.875rem;
+        transition: var(--premium-transition);
+        background: var(--premium-light);
+    }
+
+        .premium-search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+    .premium-select {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 2px solid var(--premium-gray-200);
+        border-radius: var(--premium-border-radius);
+        font-size: 0.875rem;
+        transition: var(--premium-transition);
+        background: var(--premium-light);
+        cursor: pointer;
+    }
+
+        .premium-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+    /* Premium Table Card */
+    .premium-table-card {
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius-lg);
+        box-shadow: var(--premium-shadow);
+        border: 1px solid var(--premium-gray-200);
+        overflow: hidden;
+    }
+
+    .premium-table-header {
+        background: linear-gradient(135deg, var(--premium-gray-50), var(--premium-gray-100));
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--premium-gray-200);
+    }
+
+    .premium-table-title {
+        margin: 0;
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        display: flex;
+        align-items: center;
+    }
+
+    .premium-table-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .premium-table-body {
+        padding: 0;
+    }
+
+    .premium-table-responsive {
+        overflow-x: auto;
+    }
+
+    .premium-table {
+        width: 100%;
+        margin: 0;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .premium-table-head {
+        background: var(--premium-gray-50);
+    }
+
+    .premium-th {
+        padding: 1.5rem 2rem;
+        border-bottom: 2px solid var(--premium-gray-200);
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: var(--premium-transition);
+    }
+
+        .premium-th:hover {
+            background: var(--premium-gray-100);
+        }
+
+    .premium-th-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .premium-sort-icon {
+        opacity: 0.5;
+        transition: var(--premium-transition);
+    }
+
+    .premium-th.sortable:hover .premium-sort-icon {
+        opacity: 1;
+    }
+
+    .premium-table-row {
+        transition: var(--premium-transition);
+        border-bottom: 1px solid var(--premium-gray-200);
+    }
+
+        .premium-table-row:hover {
+            background: rgba(102, 126, 234, 0.02);
+        }
+
+        .premium-table-row.selected {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+    .premium-td {
+        padding: 1.5rem 2rem;
+        vertical-align: middle;
+    }
+
+    .premium-cell-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .premium-checkbox {
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--premium-gray-300);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: var(--premium-transition);
+    }
+
+        .premium-checkbox:checked {
+            background: #667eea;
+            border-color: #667eea;
+        }
+
+    .premium-id-badge {
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .premium-customer-info, .premium-product-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .premium-customer-avatar, .premium-product-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: var(--premium-border-radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--premium-light);
+        font-size: 1.25rem;
+        flex-shrink: 0;
+        font-weight: 700;
+    }
+
+    .premium-customer-avatar {
+        background: var(--premium-success);
+    }
+
+    .premium-product-avatar {
+        background: var(--premium-warning);
+    }
+
+    .premium-customer-name, .premium-product-name {
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .premium-customer-meta, .premium-product-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .premium-meta-item {
+        font-size: 0.75rem;
+        color: var(--premium-gray-600);
+        display: flex;
+        align-items: center;
+    }
+
+    .premium-quantity-badge {
+        padding: 0.75rem 1rem;
+        border-radius: var(--premium-border-radius);
+        font-weight: 600;
+        font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        min-width: 120px;
+    }
+
+    .quantity-low {
+        background: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+        border: 1px solid rgba(220, 53, 69, 0.3);
+    }
+
+    .quantity-medium {
+        background: rgba(255, 193, 7, 0.1);
+        color: #ffc107;
+        border: 1px solid rgba(255, 193, 7, 0.3);
+    }
+
+    .quantity-high {
+        background: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+        border: 1px solid rgba(40, 167, 69, 0.3);
+    }
+
+    .premium-quantity-label {
+        font-size: 0.75rem;
+        opacity: 0.8;
+    }
+
+    .premium-action-group {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .premium-action-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--premium-border-radius);
+        border: 2px solid var(--premium-gray-200);
+        background: var(--premium-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--premium-transition);
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .premium-action-view:hover {
+        border-color: #17a2b8;
+        color: #17a2b8;
+        background: rgba(23, 162, 184, 0.05);
+        transform: translateY(-2px);
+    }
+
+    .premium-action-edit:hover {
+        border-color: #667eea;
+        color: #667eea;
+        background: rgba(102, 126, 234, 0.05);
+        transform: translateY(-2px);
+    }
+
+    .premium-action-convert:hover {
+        border-color: #28a745;
+        color: #28a745;
+        background: rgba(40, 167, 69, 0.05);
+        transform: translateY(-2px);
+    }
+
+    .premium-action-delete:hover {
+        border-color: #dc3545;
+        color: #dc3545;
+        background: rgba(220, 53, 69, 0.05);
+        transform: translateY(-2px);
+    }
+
+    /* Premium Empty State */
+    .premium-empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+    }
+
+    .premium-empty-icon {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: var(--premium-gray-100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        font-size: 3rem;
+        color: var(--premium-gray-400);
+    }
+
+    .premium-empty-title {
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        margin-bottom: 1rem;
+    }
+
+    .premium-empty-message {
+        color: var(--premium-gray-600);
+        margin-bottom: 2rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    /* Premium Card View */
+    .premium-cart-card {
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius-lg);
+        box-shadow: var(--premium-shadow);
+        border: 1px solid var(--premium-gray-200);
+        overflow: hidden;
+        transition: var(--premium-transition);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .premium-cart-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--premium-shadow-lg);
+        }
+
+        .premium-cart-card.selected {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+    .premium-cart-card-header {
+        background: var(--premium-gray-50);
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--premium-gray-200);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .premium-cart-card-id {
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+
+    .premium-cart-card-body {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .premium-cart-customer {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .premium-cart-customer-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--premium-success);
+        color: var(--premium-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 700;
+        flex-shrink: 0;
+    }
+
+    .premium-cart-customer-name {
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        margin-bottom: 0.25rem;
+    }
+
+    .premium-cart-customer-id {
+        font-size: 0.875rem;
+        color: var(--premium-gray-600);
+    }
+
+    .premium-cart-product {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: var(--premium-gray-50);
+        border-radius: var(--premium-border-radius);
+    }
+
+    .premium-cart-product-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--premium-border-radius);
+        background: var(--premium-warning);
+        color: var(--premium-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+    }
+
+    .premium-cart-product-name {
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        margin-bottom: 0.25rem;
+    }
+
+    .premium-cart-product-id {
+        font-size: 0.875rem;
+        color: var(--premium-gray-600);
+    }
+
+    .premium-cart-quantity {
+        text-align: center;
+    }
+
+    .premium-quantity-display {
+        padding: 1rem;
+        border-radius: var(--premium-border-radius);
+        display: inline-block;
+        min-width: 100px;
+    }
+
+    .premium-quantity-number {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 0.25rem;
+    }
+
+    .premium-quantity-text {
+        font-size: 0.875rem;
+        opacity: 0.8;
+    }
+
+    .premium-cart-card-footer {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--premium-gray-200);
+        background: var(--premium-gray-50);
+    }
+
+    .premium-card-actions {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .premium-card-action {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--premium-border-radius);
+        border: 2px solid var(--premium-gray-200);
+        background: var(--premium-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--premium-transition);
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .premium-card-action-view:hover {
+        border-color: #17a2b8;
+        color: #17a2b8;
+        background: rgba(23, 162, 184, 0.05);
+    }
+
+    .premium-card-action-edit:hover {
+        border-color: #667eea;
+        color: #667eea;
+        background: rgba(102, 126, 234, 0.05);
+    }
+
+    .premium-card-action-convert:hover {
+        border-color: #28a745;
+        color: #28a745;
+        background: rgba(40, 167, 69, 0.05);
+    }
+
+    .premium-card-action-delete:hover {
+        border-color: #dc3545;
+        color: #dc3545;
+        background: rgba(220, 53, 69, 0.05);
+    }
+
+    /* Premium Bulk Actions */
+    .premium-bulk-actions {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius-lg);
+        box-shadow: var(--premium-shadow-xl);
+        border: 1px solid var(--premium-gray-200);
+        z-index: 1000;
+        animation: slideUp 0.3s ease;
+    }
+
+    .premium-bulk-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 1rem 2rem;
+    }
+
+    .premium-bulk-info {
+        font-weight: 600;
+        color: var(--premium-gray-900);
+    }
+
+    .premium-bulk-buttons {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    /* Premium Modal */
+    .premium-modal {
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius-lg);
+        box-shadow: var(--premium-shadow-xl);
+        border: none;
+        overflow: hidden;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .premium-modal-header {
+        display: flex;
+        align-items: center;
+        padding: 2rem 2rem 1rem;
+        border-bottom: 1px solid var(--premium-gray-200);
+    }
+
+    .premium-modal-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(250, 112, 154, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fa709a;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .premium-modal-icon-glow {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        background: radial-gradient(circle, rgba(250, 112, 154, 0.3) 0%, transparent 70%);
+        animation: premium-glow 3s ease-in-out infinite alternate;
+    }
+
+    .premium-modal-title {
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        margin: 0;
+        flex: 1;
+    }
+
+    .premium-modal-close {
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 50%;
+        background: var(--premium-gray-100);
+        color: var(--premium-gray-600);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--premium-transition);
+    }
+
+        .premium-modal-close:hover {
+            background: var(--premium-gray-200);
+        }
+
+    .premium-modal-body {
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .premium-modal-warning {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .premium-warning-icon {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: rgba(250, 112, 154, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fa709a;
+        font-size: 2.5rem;
+        margin: 0 auto 1.5rem;
+    }
+
+    .premium-warning-title {
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        margin-bottom: 1rem;
+    }
+
+    .premium-warning-message {
+        color: var(--premium-gray-600);
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+    .premium-modal-footer {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem 2rem 2rem;
+    }
+
+    /* Animations */
+    @@keyframes premium-glow {
+        0%
+
+    {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+
+    }
+
+    @@keyframes premium-float {
+        0%, 100%
+
+    {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    }
+
+    @@keyframes slideUp {
+        from
+
+    {
+        transform: translateX(-50%) translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    }
+    /* Premium Alerts */
+    .premium-alert {
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        border-radius: var(--premium-border-radius);
+        margin-bottom: 1rem;
+        border: none;
+        box-shadow: var(--premium-shadow);
+        position: relative;
+        overflow: hidden;
+    }
+
+        .premium-alert::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 4px;
+        }
+
+    .alert-danger {
+        background: linear-gradient(135deg, rgba(250, 112, 154, 0.1), rgba(254, 225, 64, 0.1));
+        color: #dc3545;
+    }
+
+        .alert-danger::before {
+            background: var(--premium-danger);
+        }
+
+    .alert-success {
+        background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+        color: #198754;
+    }
+
+        .alert-success::before {
+            background: var(--premium-success);
+        }
+
+    .premium-alert-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .alert-danger .premium-alert-icon {
+        background: rgba(220, 53, 69, 0.1);
+    }
+
+    .alert-success .premium-alert-icon {
+        background: rgba(25, 135, 84, 0.1);
+    }
+
+    .premium-alert-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+
+    .premium-alert-message {
+        margin-bottom: 0;
+        opacity: 0.8;
+    }
+
+    .premium-alert-close {
+        background: none;
+        border: none;
+        font-size: 1.25rem;
+        margin-left: auto;
+        padding: 0.25rem;
+        border-radius: 50%;
+        transition: var(--premium-transition);
+    }
+
+        .premium-alert-close:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+    /* Responsive Design */
+    @@media (max-width: 768px) {
+        .premium-header-content
+
+    {
+        padding: 2rem 1rem;
+    }
+
+    .premium-cart-title {
+        font-size: 2rem;
+    }
+
+    .premium-cart-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .premium-action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .premium-btn {
+        width: 100%;
+    }
+
+    .premium-table-responsive {
+        font-size: 0.875rem;
+    }
+
+    .premium-th, .premium-td {
+        padding: 1rem;
+    }
+
+    .premium-customer-info, .premium-product-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .premium-bulk-actions {
+        left: 1rem;
+        right: 1rem;
+        transform: none;
+    }
+
+    .premium-bulk-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    }
+
+    @@media (max-width: 576px) {
+        .premium-filter-body
+
+    {
+        padding: 1rem;
+    }
+
+    .premium-action-group {
+        flex-direction: column;
+    }
+
+    .premium-cart-card-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .premium-cart-customer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .premium-cart-product {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    }
+</style>
+
+<script>
+    let currentView = 'table';
+    let selectedItems = new Set();
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', function() {
+        filterCarts();
+    });
+
+    // Filter functionality
+    document.getElementById('userFilter').addEventListener('change', function() {
+        filterCarts();
+    });
+
+    document.getElementById('quantityFilter').addEventListener('change', function() {
+        filterCarts();
+    });
+
+    // Sort functionality
+    document.getElementById('sortBy').addEventListener('change', function() {
+        sortCarts(this.value);
+    });
+
+    function filterCarts() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const userFilter = document.getElementById('userFilter').value;
+        const quantityFilter = document.getElementById('quantityFilter').value;
+
+        const rows = document.querySelectorAll('.premium-table-row');
+        const cardItems = document.querySelectorAll('.cart-card-item');
+
+        // Filter table rows
+        rows.forEach(row => {
+            const customerName = row.dataset.customerName || '';
+            const productName = row.dataset.productName || '';
+            const userId = row.dataset.userId || '';
+            const quantity = parseInt(row.dataset.quantity) || 0;
+
+            const matchesSearch = customerName.includes(searchTerm) || productName.includes(searchTerm);
+            const matchesUser = !userFilter || userId === userFilter;
+
+            let matchesQuantity = true;
+            if (quantityFilter) {
+                if (quantityFilter === '1') {
+                    matchesQuantity = quantity === 1;
+                } else if (quantityFilter === '2-5') {
+                    matchesQuantity = quantity >= 2 && quantity <= 5;
+                } else if (quantityFilter === '6+') {
+                    matchesQuantity = quantity >= 6;
+                }
+            }
+
+            if (matchesSearch && matchesUser && matchesQuantity) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+
+        // Filter card items
+        cardItems.forEach(item => {
+            const customerName = item.dataset.customerName || '';
+            const productName = item.dataset.productName || '';
+            const userId = item.dataset.userId || '';
+            const quantity = parseInt(item.dataset.quantity) || 0;
+
+            const matchesSearch = customerName.includes(searchTerm) || productName.includes(searchTerm);
+            const matchesUser = !userFilter || userId === userFilter;
+
+            let matchesQuantity = true;
+            if (quantityFilter) {
+                if (quantityFilter === '1') {
+                    matchesQuantity = quantity === 1;
+                } else if (quantityFilter === '2-5') {
+                    matchesQuantity = quantity >= 2 && quantity <= 5;
+                } else if (quantityFilter === '6+') {
+                    matchesQuantity = quantity >= 6;
+                }
+            }
+
+            if (matchesSearch && matchesUser && matchesQuantity) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    function sortCarts(field) {
+        const tbody = document.querySelector('.premium-table-body-content');
+        const rows = Array.from(tbody.querySelectorAll('.premium-table-row'));
+
+        rows.sort((a, b) => {
+            let aValue, bValue;
+
+            switch(field) {
+                case 'id':
+                    aValue = parseInt(a.dataset.cartId);
+                    bValue = parseInt(b.dataset.cartId);
+                    break;
+                case 'customer':
+                    aValue = a.dataset.customerName || '';
+                    bValue = b.dataset.customerName || '';
+                    break;
+                case 'product':
+                    aValue = a.dataset.productName || '';
+                    bValue = b.dataset.productName || '';
+                    break;
+                case 'quantity':
+                    aValue = parseInt(a.dataset.quantity);
+                    bValue = parseInt(b.dataset.quantity);
+                    break;
+                default:
+                    return 0;
+            }
+
+            if (aValue < bValue) return -1;
+            if (aValue > bValue) return 1;
+            return 0;
+        });
+
+        rows.forEach(row => tbody.appendChild(row));
+    }
+
+    function clearFilters() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('userFilter').value = '';
+        document.getElementById('quantityFilter').value = '';
+        document.getElementById('sortBy').value = 'customer';
+        filterCarts();
+        sortCarts('customer');
+    }
+
+    function toggleView() {
+        const tableView = document.querySelector('.premium-table-card');
+        const cardView = document.getElementById('cardView');
+        const toggleBtn = document.querySelector('[onclick="toggleView()"]');
+
+        if (currentView === 'table') {
+            tableView.style.display = 'none';
+            cardView.style.display = 'flex';
+            toggleBtn.innerHTML = '<i class="bi bi-table me-1"></i>Table View';
+            currentView = 'card';
+        } else {
+            tableView.style.display = 'block';
+            cardView.style.display = 'none';
+            toggleBtn.innerHTML = '<i class="bi bi-grid-3x3-gap me-1"></i>Card View';
+            currentView = 'table';
+        }
+    }
+
+    function selectAll() {
+        const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+        const checkboxes = document.querySelectorAll('.row-checkbox, .card-checkbox');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = selectAllCheckbox.checked;
+            updateRowSelection(checkbox);
+        });
+
+        updateBulkActions();
+    }
+
+    function updateRowSelection(checkbox) {
+        const cartId = checkbox.value;
+        const row = checkbox.closest('.premium-table-row');
+        const card = checkbox.closest('.premium-cart-card');
+
+        if (checkbox.checked) {
+            selectedItems.add(cartId);
+            if (row) row.classList.add('selected');
+            if (card) card.classList.add('selected');
+        } else {
+            selectedItems.delete(cartId);
+            if (row) row.classList.remove('selected');
+            if (card) card.classList.remove('selected');
+        }
+    }
+
+    function updateBulkActions() {
+        const bulkActions = document.getElementById('bulkActions');
+        const selectedCount = document.getElementById('selectedCount');
+
+        if (selectedItems.size > 0) {
+            bulkActions.style.display = 'block';
+            selectedCount.textContent = selectedItems.size;
+        } else {
+            bulkActions.style.display = 'none';
+        }
+    }
+
+    function clearSelection() {
+        selectedItems.clear();
+        document.querySelectorAll('.row-checkbox, .card-checkbox').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        document.querySelectorAll('.premium-table-row, .premium-cart-card').forEach(item => {
+            item.classList.remove('selected');
+        });
+        document.getElementById('selectAllCheckbox').checked = false;
+        updateBulkActions();
+    }
+
+    function confirmDelete(cartID) {  
+        document.getElementById('confirmDeleteBtn').href = `/Cart/Delete/${cartID}`;
+        var deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        deleteModal.show();
+    }
+
+    function bulkConvertToOrder() {
+        if (selectedItems.size === 0) return;
+
+        if (confirm(`Convert ${selectedItems.size} cart items to orders?`)) {
+            const cartIds = Array.from(selectedItems);
+            // Implement bulk convert functionality here
+            console.log('Converting cart items to orders:', cartIds);
+            alert('Bulk convert functionality would be implemented here');
+        }
+    }
+
+    function bulkDelete() {
+        if (selectedItems.size === 0) return;
+
+        if (confirm(`Delete ${selectedItems.size} cart items? This action cannot be undone.`)) {
+            const cartIds = Array.from(selectedItems);
+            // Implement bulk delete functionality here
+            console.log('Deleting cart items:', cartIds);
+            alert('Bulk delete functionality would be implemented here');
+        }
+    }
+
+    function clearAbandonedCarts() {
+        if (confirm('Clear all abandoned cart items? This will remove items that have been inactive for more than 30 days.')) {
+            // Add loading animation
+            const btn = event.target;
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = '<i class="bi bi-arrow-clockwise" style="animation: spin 1s linear infinite;"></i> Clearing...';
+
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                alert('Abandoned carts cleared successfully!');
+            }, 2000);
+        }
+    }
+
+    function exportCarts() {
+        // Add loading animation
+        const btn = event.target;
+        const originalContent = btn.innerHTML;
+        btn.innerHTML = '<i class="bi bi-arrow-clockwise" style="animation: spin 1s linear infinite;"></i> Exporting...';
+
+        setTimeout(() => {
+            btn.innerHTML = originalContent;
+            alert('Export functionality would be implemented here');
+        }, 2000);
+    }
+
+    // Initialize tooltips and animations
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Smooth scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.premium-stat-card, .premium-filter-card, .premium-table-card, .premium-cart-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add checkbox event listeners
+        document.getElementById('selectAllCheckbox').addEventListener('change', selectAll);
+
+        document.querySelectorAll('.row-checkbox, .card-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                updateRowSelection(this);
+                updateBulkActions();
+            });
+        });
+
+        // Add sortable functionality to table headers
+        document.querySelectorAll('.premium-th.sortable').forEach(th => {
+            th.addEventListener('click', function() {
+                const sortField = this.dataset.sort;
+                const sortIcon = this.querySelector('.premium-sort-icon');
+
+                // Reset all other sort icons
+                document.querySelectorAll('.premium-sort-icon').forEach(icon => {
+                    if (icon !== sortIcon) {
+                        icon.className = 'bi bi-chevron-expand premium-sort-icon';
+                    }
+                });
+
+                // Toggle current sort direction
+                if (sortIcon.classList.contains('bi-chevron-up')) {
+                    sortIcon.className = 'bi bi-chevron-down premium-sort-icon';
+                } else {
+                    sortIcon.className = 'bi bi-chevron-up premium-sort-icon';
+                }
+
+                // Sort the table
+                sortCarts(sortField);
+            });
+        });
+    });
+
+    // Add spin animation for loading states
+    const style = document.createElement('style');
+    style.textContent = `
+    @@keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">

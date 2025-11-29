@@ -1,0 +1,1975 @@
+﻿@model List<My_Project.Models.UserModel>
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<div class="container-fluid">
+    <!-- Premium Header Section -->
+    <div class="row ">
+        <div class="col-12">
+            <div class="premium-header-card">
+                <div class="premium-header-bg"></div>
+                <div class="premium-header-content">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="premium-icon-wrapper">
+                                    <i class="bi bi-people"></i>
+                                    <div class="premium-icon-glow"></div>
+                                </div>
+                                <div class="ms-4">
+                                    <h1 class="premium-title">User Management</h1>
+                                    <p class="premium-subtitle">Comprehensive user administration with advanced analytics and insights</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                            <div class="premium-action-buttons">
+                                <a asp-controller="User" asp-action="AddEdit" class="btn premium-btn-primary">
+                                    <i class="bi bi-person-plus me-2"></i>
+                                    Add New User
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="premium-header-particles">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Stats Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-xl-3 col-md-6">
+            <div class="premium-stats-card stats-primary">
+                <div class="premium-stats-icon">
+                    <i class="bi bi-people"></i>
+                </div>
+                <div class="premium-stats-content">
+                    <div class="premium-stats-label">Total Users</div>
+                    <div class="premium-stats-value">@(Model?.Count ?? 0)</div>
+                    <div class="premium-stats-change positive">
+                        <i class="bi bi-arrow-up"></i>
+                        <span>+12% from last month</span>
+                    </div>
+                </div>
+                <div class="premium-stats-chart">
+                    <div class="chart-bar" style="height: 75%"></div>
+                    <div class="chart-bar" style="height: 90%"></div>
+                    <div class="chart-bar" style="height: 65%"></div>
+                    <div class="chart-bar" style="height: 100%"></div>
+                    <div class="chart-bar" style="height: 85%"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="premium-stats-card stats-success">
+                <div class="premium-stats-icon">
+                    <i class="bi bi-person-check"></i>
+                </div>
+                <div class="premium-stats-content">
+                    <div class="premium-stats-label">Active Users</div>
+                    <div class="premium-stats-value">@(Model?.Count(x => x.Role == "User") ?? 0)</div>
+                    <div class="premium-stats-change positive">
+                        <i class="bi bi-check-circle"></i>
+                        <span>All systems operational</span>
+                    </div>
+                </div>
+                <div class="premium-stats-progress">
+                    <div class="progress-ring">
+                        <div class="progress-circle" data-percentage="88"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="premium-stats-card stats-warning">
+                <div class="premium-stats-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+                <div class="premium-stats-content">
+                    <div class="premium-stats-label">Admin Users</div>
+                    <div class="premium-stats-value">@(Model?.Count(x => x.Role == "Admin") ?? 0)</div>
+                    <div class="premium-stats-change neutral">
+                        <i class="bi bi-gear"></i>
+                        <span>System administrators</span>
+                    </div>
+                </div>
+                <div class="premium-stats-wave">
+                    <svg viewBox="0 0 100 20">
+                        <path d="M0,10 Q25,0 50,10 T100,10" stroke="currentColor" fill="none" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="premium-stats-card stats-info">
+                <div class="premium-stats-icon">
+                    <i class="bi bi-calendar-plus"></i>
+                </div>
+                <div class="premium-stats-content">
+                    <div class="premium-stats-label">New This Month</div>
+                    <div class="premium-stats-value">@(Model?.Count(x => x.Created >= DateTime.Now.AddDays(-30)) ?? 0)</div>
+                    <div class="premium-stats-change positive">
+                        <i class="bi bi-graph-up"></i>
+                        <span>Growing community</span>
+                    </div>
+                </div>
+                <div class="premium-stats-dots">
+                    <div class="dot active"></div>
+                    <div class="dot active"></div>
+                    <div class="dot active"></div>
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Messages -->
+    @if (TempData["Error"] != null)
+    {
+        <div class="premium-alert alert-danger">
+            <div class="premium-alert-icon">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+            <div class="premium-alert-content">
+                <div class="premium-alert-title">Error!</div>
+                <div class="premium-alert-message">@TempData["Error"]</div>
+            </div>
+            <button type="button" class="premium-alert-close" data-bs-dismiss="alert">
+                <i class="bi bi-x"></i>
+            </button>
+        </div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="premium-alert alert-success">
+            <div class="premium-alert-icon">
+                <i class="bi bi-check-circle-fill"></i>
+            </div>
+            <div class="premium-alert-content">
+                <div class="premium-alert-title">Success!</div>
+                <div class="premium-alert-message">@TempData["Success"]</div>
+            </div>
+            <button type="button" class="premium-alert-close" data-bs-dismiss="alert">
+                <i class="bi bi-x"></i>
+            </button>
+        </div>
+    }
+
+    <!-- Premium Search Panel -->
+    <div class="premium-search-panel mb-4">
+        <div class="premium-search-header">
+            <div class="d-flex align-items-center">
+                <div class="premium-search-icon">
+                    <i class="bi bi-funnel"></i>
+                </div>
+                <h5 class="premium-search-title">Advanced Search & Filters</h5>
+            </div>
+            <button class="premium-toggle-btn" data-bs-toggle="collapse" data-bs-target="#searchPanel">
+                <i class="bi bi-chevron-down"></i>
+            </button>
+        </div>
+        <div class="collapse show" id="searchPanel">
+            <div class="premium-search-content">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="premium-form-group">
+                            <label class="premium-form-label">Search Users</label>
+                            <div class="premium-input-wrapper">
+                                <i class="bi bi-search premium-input-icon"></i>
+                                <input type="text" id="searchInput" class="premium-form-control"
+                                       placeholder="Search by name, email, phone...">
+                                <div class="premium-input-focus"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6">
+                        <div class="premium-form-group">
+                            <label for="roleFilter" class="premium-form-label">Role</label>
+                            <div class="premium-select-wrapper position-relative">
+                                <select id="roleFilter" class="premium-form-select" onchange="filterTable()" title="Filter by user role">
+                                    <option value="">All Roles</option>
+                                    <option value="User">User</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                                <i class="bi bi-chevron-down premium-select-icon position-absolute top-50 end-0 translate-middle-y pe-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6">
+                        <div class="premium-form-group">
+                            <label for="cityFilter" class="premium-form-label">City</label>
+                            <div class="premium-select-wrapper position-relative">
+                                <select id="cityFilter" class="premium-form-select" onchange="filterTable()" title="Filter by city">
+                                    <option value="">All Cities</option>
+                                    @if (Model != null)
+                                    {
+                                        @foreach (var city in Model.Where(x => !string.IsNullOrEmpty(x.City)).Select(x => x.City).Distinct().OrderBy(x => x))
+                                        {
+                                            <option value="@city">@city</option>
+                                        }
+                                    }
+                                </select>
+                                <i class="bi bi-chevron-down premium-select-icon position-absolute top-50 end-0 translate-middle-y pe-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-12">
+                        <div class="premium-form-group">
+                            <label class="premium-form-label">Actions</label>
+                            <div class="d-flex gap-2">
+                                <button type="button" class="premium-action-btn" onclick="clearFilters()" data-bs-toggle="tooltip" title="Clear filters">
+                                    <i class="bi bi-arrow-clockwise"></i>
+                                </button>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Users Table -->
+    <div class="premium-table-container">
+        <div class="premium-table-header">
+            <div class="d-flex align-items-center">
+                <div class="premium-table-icon">
+                    <i class="bi bi-table"></i>
+                </div>
+                <div>
+                    <h5 class="premium-table-title">Users Directory</h5>
+                    <span class="premium-table-badge" id="totalCount">@(Model?.Count ?? 0) users</span>
+                </div>
+            </div>
+            <div class="premium-table-controls" style="margin-left:auto">
+              
+                <button class="premium-refresh-btn" onclick="refreshTable()">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    <span>Refresh</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="premium-table-wrapper">
+            <table class="premium-table" id="usersTable">
+                <thead>
+                    <tr>
+                        <th class="premium-th sortable" data-column="fullname">
+                            <div class="premium-th-content">
+                                <i class="bi bi-person"></i>
+                                <span>User</span>
+                                <i class="bi bi-chevron-expand sort-icon"></i>
+                            </div>
+                        </th>
+                        <th class="premium-th sortable" data-column="email">
+                            <div class="premium-th-content">
+                                <i class="bi bi-envelope"></i>
+                                <span>Email</span>
+                                <i class="bi bi-chevron-expand sort-icon"></i>
+                            </div>
+                        </th>
+                        <th class="premium-th sortable" data-column="phone">
+                            <div class="premium-th-content">
+                                <i class="bi bi-telephone"></i>
+                                <span>Phone</span>
+                                <i class="bi bi-chevron-expand sort-icon"></i>
+                            </div>
+                        </th>
+                        <th class="premium-th sortable" data-column="role">
+                            <div class="premium-th-content">
+                                <i class="bi bi-shield"></i>
+                                <span>Role</span>
+                                <i class="bi bi-chevron-expand sort-icon"></i>
+                            </div>
+                        </th>
+                        <th class="premium-th sortable" data-column="location">
+                            <div class="premium-th-content">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>Location</span>
+                                <i class="bi bi-chevron-expand sort-icon"></i>
+                            </div>
+                        </th>
+                       @*  <th class="premium-th sortable" data-column="created">
+                            <div class="premium-th-content">
+                                <i class="bi bi-calendar"></i>
+                                <span>Joined</span>
+                                <i class="bi bi-chevron-expand sort-icon"></i>
+                            </div>
+                        </th> *@
+                        <th class="premium-th text-center">
+                            <div class="premium-th-content justify-content-center">
+                                <i class="bi bi-gear"></i>
+                                <span>Actions</span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var user in Model)
+                        {
+                            <tr class="premium-tr"
+                                data-user-id="@user.UserID"
+                                data-fullname="@user.FullName"
+                                data-email="@user.Email"
+                                data-phone="@user.Phone"
+                                data-role="@user.Role"
+                                 data-city="@user.City"
+                            @*  data-created="@user.Created.ToString("yyyy-MM-dd")" *@>
+                                <td class="premium-td">
+                                    <div class="premium-item-info">
+                                        <div class="premium-item-avatar">
+                                            <i class="bi bi-person"></i>
+                                            <div class="premium-avatar-glow"></div>
+                                        </div>
+                                        <div class="premium-item-details">
+                                            <div class="premium-item-id">@user.FullName</div>
+                                            <div class="premium-item-label">ID: #@user.UserID</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="premium-td">
+                                    <div class="premium-email-info">
+                                        <div class="premium-email-main">@user.Email</div>
+                                        <div class="premium-email-label">Primary Email</div>
+                                    </div>
+                                </td>
+                                <td class="premium-td">
+                                    @if (!string.IsNullOrEmpty(user.Phone))
+                                    {
+                                        <div class="premium-phone-badge">
+                                            <i class="bi bi-telephone"></i>
+                                            <span>@user.Phone</span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <span class="premium-null-value">No Phone</span>
+                                    }
+                                </td>
+                                <td class="premium-td">
+                                    <div class="premium-role-badge role-@user.Role.ToLower()">
+                                        @if (user.Role == "Admin")
+                                        {
+                                            <i class="bi bi-shield-fill"></i>
+                                        }
+                                        else if (user.Role == "Manager")
+                                        {
+                                            <i class="bi bi-person-gear"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-person"></i>
+                                        }
+                                        <span>@user.Role</span>
+                                    </div>
+                                </td>
+                                <td class="premium-td">
+                                    @if (!string.IsNullOrEmpty(user.City) && !string.IsNullOrEmpty(user.State))
+                                    {
+                                        <div class="premium-location-info">
+                                            <div class="premium-location-main">@user.City, @user.State</div>
+                                            @if (!string.IsNullOrEmpty(user.Pincode))
+                                            {
+                                                <div class="premium-location-label">@user.Pincode</div>
+                                            }
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <span class="premium-null-value">No Location</span>
+                                    }
+                                </td>
+                                @*  <td class="premium-td">
+                                    <div class="premium-date-info">
+                                        <div class="premium-date-main">@user.Created.ToString("MMM dd, yyyy")</div>
+                                        <div class="premium-date-label">@user.Created.ToString("hh:mm tt")</div>
+                                    </div>
+                                </td> *@
+                                <td class="premium-td text-center">
+                                    <div class="premium-action-group">
+                                        <a asp-controller="User" asp-action="UserDetails" asp-route-id="@user.UserID"
+                                           class="premium-action-btn action-view" data-bs-toggle="tooltip" title="View Details">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a asp-controller="User" asp-action="AddEdit" asp-route-id="@user.UserID"
+                                           class="premium-action-btn action-edit" data-bs-toggle="tooltip" title="Edit User">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                       @*  <button type="button" class="premium-action-btn action-message"
+                                                onclick="sendMessage('@user.UserID', '@user.Email')"
+                                                data-bs-toggle="tooltip" title="Send Message">
+                                            <i class="bi bi-envelope"></i>
+                                        </button> *@
+                                        <button type="button" class="premium-action-btn action-delete"
+                                                onclick="confirmDelete('@user.UserID', '@user.FullName')"
+                                                data-bs-toggle="tooltip" title="Delete User">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr id="noUsersRow">
+                            <td colspan="7" class="premium-empty-state">
+                                <div class="premium-empty-content">
+                                    <div class="premium-empty-icon">
+                                        <i class="bi bi-people"></i>
+                                        <div class="premium-empty-glow"></div>
+                                    </div>
+                                    <h5 class="premium-empty-title">No users found</h5>
+                                    <p class="premium-empty-message">Get started by adding your first user to the system.</p>
+                                    <a asp-controller="User" asp-action="AddEdit" class="premium-btn-primary">
+                                        <i class="bi bi-person-plus me-2"></i>Create Your First User
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Premium Pagination -->
+        <div class="premium-pagination-wrapper">
+            <div class="premium-pagination-info" id="paginationInfo">
+                Showing <strong id="showingStart">1</strong> to <strong id="showingEnd">10</strong> of <strong id="totalEntries">0</strong> entries
+            </div>
+            <nav class="premium-pagination">
+                <ul class="premium-pagination-list" id="pagination">
+                    <!-- Pagination will be generated by JavaScript -->
+                </ul>
+            </nav>
+            <div class="premium-pagination-size">
+                <select id="itemsPerPage" class="form-select form-select-sm" style="width: auto;">
+                    <option value="5">5 per page</option>
+                    <option value="10" selected>10 per page</option>
+                    <option value="15">15 per page</option>
+                    <option value="20">20 per page</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Premium Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-light border-bottom-0">
+                <h5 class="modal-title">
+                    <i class="bi bi-trash text-danger me-2 fs-4"></i>Confirm Delete
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body text-center px-4">
+                <i class="bi bi-exclamation-triangle text-danger display-1"></i>
+                <h6 class="mt-3 fw-bold">Are you absolutely sure?</h6>
+                <p class="text-muted">
+                    This action cannot be undone. This will permanently delete the user
+                    <strong id="deleteUserName"></strong> and remove all associated data.
+                </p>
+            </div>
+
+            <div class="modal-footer border-top-0 justify-content-center pb-4">
+                <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Cancel</button>
+                <a id="confirmDeleteBtn" class="btn btn-danger px-4">
+                    <i class="bi bi-trash me-1"></i>Delete User
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Premium Message Modal -->
+<div class="modal fade" id="messageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-light border-bottom-0">
+                <h5 class="modal-title">
+                    <i class="bi bi-envelope text-primary me-2 fs-4"></i>Send Message
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body px-4">
+                <form id="messageForm">
+                    <div class="mb-3">
+                        <label for="messageSubject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="messageSubject" placeholder="Enter message subject">
+                    </div>
+                    <div class="mb-3">
+                        <label for="messageContent" class="form-label">Message</label>
+                        <textarea class="form-control" id="messageContent" rows="4" placeholder="Enter your message"></textarea>
+                    </div>
+                    <input type="hidden" id="messageUserId">
+                    <input type="hidden" id="messageUserEmail">
+                </form>
+            </div>
+
+            <div class="modal-footer border-top-0 justify-content-center pb-4">
+                <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary px-4" onclick="sendUserMessage()">
+                    <i class="bi bi-send me-1"></i>Send Message
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Premium Color Palette */
+    :root {
+        --premium-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --premium-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --premium-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --premium-warning: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        --premium-danger: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        --premium-info: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        --premium-dark: #1a1a2e;
+        --premium-light: #ffffff;
+        --premium-gray-100: #f8f9fa;
+        --premium-gray-200: #e9ecef;
+        --premium-gray-300: #dee2e6;
+        --premium-gray-400: #ced4da;
+        --premium-gray-500: #adb5bd;
+        --premium-gray-600: #6c757d;
+        --premium-gray-700: #495057;
+        --premium-gray-800: #343a40;
+        --premium-gray-900: #212529;
+        --premium-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        --premium-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        --premium-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+        --premium-shadow-xl: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+        --premium-border-radius: 12px;
+        --premium-border-radius-lg: 16px;
+        --premium-border-radius-xl: 20px;
+        --premium-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --premium-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Premium Header */
+    .premium-header-card {
+        position: relative;
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius-xl);
+        box-shadow: var(--premium-shadow-lg);
+        overflow: hidden;
+        margin-bottom: 2rem;
+    }
+
+    .premium-header-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--premium-primary);
+        opacity: 0.95;
+    }
+
+    .premium-header-content {
+        position: relative;
+        z-index: 2;
+        padding: 3rem 2rem;
+        color: var(--premium-light);
+    }
+
+    .premium-icon-wrapper {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: var(--premium-border-radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .premium-icon-glow {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+        animation: premium-glow 3s ease-in-out infinite alternate;
+    }
+
+    .premium-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(45deg, #ffffff, #f0f0f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .premium-subtitle {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        font-weight: 300;
+        margin-bottom: 0;
+    }
+
+    .premium-header-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        animation: premium-float 6s ease-in-out infinite;
+    }
+
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(3) {
+            top: 80%;
+            left: 40%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            top: 40%;
+            left: 70%;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(5) {
+            top: 30%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+    /* Premium Buttons */
+    .premium-btn-primary {
+        background: var(--premium-light);
+        color: #667eea;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: var(--premium-border-radius);
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        transition: var(--premium-transition);
+        box-shadow: var(--premium-shadow);
+    }
+
+        .premium-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--premium-shadow-lg);
+            color: #5a67d8;
+        }
+
+    /* Premium Stats Cards */
+    .premium-stats-card {
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius-lg);
+        padding: 2rem;
+        box-shadow: var(--premium-shadow);
+        border: 1px solid var(--premium-gray-200);
+        transition: var(--premium-transition);
+        position: relative;
+        overflow: hidden;
+    }
+
+        .premium-stats-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--premium-shadow-xl);
+        }
+
+        .premium-stats-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--premium-primary);
+        }
+
+    .stats-primary::before {
+        background: var(--premium-primary);
+    }
+
+    .stats-success::before {
+        background: var(--premium-success);
+    }
+
+    .stats-warning::before {
+        background: var(--premium-warning);
+    }
+
+    .stats-info::before {
+        background: var(--premium-info);
+    }
+
+    .premium-stats-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: var(--premium-border-radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    .stats-primary .premium-stats-icon {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        color: #667eea;
+    }
+
+    .stats-success .premium-stats-icon {
+        background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+        color: #4facfe;
+    }
+
+    .stats-warning .premium-stats-icon {
+        background: linear-gradient(135deg, rgba(67, 233, 123, 0.1), rgba(56, 249, 215, 0.1));
+        color: #43e97b;
+    }
+
+    .stats-info .premium-stats-icon {
+        background: linear-gradient(135deg, rgba(168, 237, 234, 0.1), rgba(254, 214, 227, 0.1));
+        color: #a8edea;
+    }
+
+    .premium-stats-label {
+        font-size: 0.875rem;
+        color: var(--premium-gray-600);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .premium-stats-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--premium-gray-900);
+        margin-bottom: 1rem;
+    }
+
+    .premium-stats-change {
+        display: flex;
+        align-items: center;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+        .premium-stats-change.positive {
+            color: #10b981;
+        }
+
+        .premium-stats-change.neutral {
+            color: var(--premium-gray-600);
+        }
+
+    .premium-stats-chart {
+        position: absolute;
+        bottom: 0;
+        right: 1rem;
+        display: flex;
+        align-items: end;
+        gap: 2px;
+        height: 40px;
+    }
+
+    .chart-bar {
+        width: 4px;
+        background: var(--premium-primary);
+        border-radius: 2px 2px 0 0;
+        opacity: 0.3;
+        animation: premium-chart-grow 2s ease-out;
+    }
+
+    .premium-stats-progress {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+    }
+
+    .progress-ring {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .progress-circle {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: conic-gradient(#10b981 0deg, #10b981 317deg, var(--premium-gray-200) 317deg);
+        position: relative;
+    }
+
+    .premium-stats-wave {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 30px;
+        opacity: 0.3;
+        color: #43e97b;
+    }
+
+    .premium-stats-dots {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        gap: 4px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--premium-gray-300);
+        transition: var(--premium-transition);
+    }
+
+        .dot.active {
+            background: #a8edea;
+            box-shadow: 0 0 10px rgba(168, 237, 234, 0.5);
+        }
+
+    /* Premium Alerts */
+    .premium-alert {
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        border-radius: var(--premium-border-radius);
+        margin-bottom: 1rem;
+        border: none;
+        box-shadow: var(--premium-shadow);
+        position: relative;
+        overflow: hidden;
+    }
+
+        .premium-alert::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 4px;
+        }
+
+    .alert-danger {
+        background: linear-gradient(135deg, rgba(250, 112, 154, 0.1), rgba(254, 225, 64, 0.1));
+        color: #dc3545;
+    }
+
+        .alert-danger::before {
+            background: var(--premium-danger);
+        }
+
+    .alert-success {
+        background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+        color: #198754;
+    }
+
+        .alert-success::before {
+            background: var(--premium-success);
+        }
+
+    .premium-alert-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .alert-danger .premium-alert-icon {
+        background: rgba(220, 53, 69, 0.1);
+    }
+
+    .alert-success .premium-alert-icon {
+        background: rgba(25, 135, 84, 0.1);
+    }
+
+    .premium-alert-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+
+    .premium-alert-message {
+        margin-bottom: 0;
+        opacity: 0.8;
+    }
+
+    .premium-alert-close {
+        background: none;
+        border: none;
+        font-size: 1.25rem;
+        margin-left: auto;
+        padding: 0.25rem;
+        border-radius: 50%;
+        transition: var(--premium-transition);
+    }
+
+        .premium-alert-close:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+    /* Premium Search Panel */
+    .premium-search-panel {
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius-lg);
+        box-shadow: var(--premium-shadow);
+        border: 1px solid var(--premium-gray-200);
+        overflow: hidden;
+    }
+
+    .premium-search-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: linear-gradient(135deg, var(--premium-gray-50), var(--premium-gray-100));
+        border-bottom: 1px solid var(--premium-gray-200);
+    }
+
+    .premium-search-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--premium-border-radius);
+        background: var(--premium-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--premium-light);
+        margin-right: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .premium-search-title {
+        margin: 0;
+        font-weight: 700;
+        color: var(--premium-gray-900);
+    }
+
+    .premium-toggle-btn {
+        background: none;
+        border: 1px solid var(--premium-gray-300);
+        padding: 0.5rem 1rem;
+        border-radius: var(--premium-border-radius);
+        color: var(--premium-gray-600);
+        transition: var(--premium-transition);
+    }
+
+        .premium-toggle-btn:hover {
+            background: var(--premium-gray-100);
+            border-color: var(--premium-gray-400);
+        }
+
+    .premium-search-content {
+        padding: 2rem;
+        background: rgba(248, 249, 250, 0.5);
+    }
+
+    .premium-form-group {
+        margin-bottom: 0;
+    }
+
+    .premium-form-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--premium-gray-600);
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .premium-input-wrapper {
+        position: relative;
+    }
+
+    .premium-form-control {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 3rem;
+        border: 2px solid var(--premium-gray-200);
+        border-radius: var(--premium-border-radius);
+        background: var(--premium-light);
+        font-size: 0.875rem;
+        transition: var(--premium-transition);
+        outline: none;
+    }
+
+        .premium-form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+    .premium-input-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--premium-gray-500);
+        font-size: 1rem;
+        z-index: 2;
+    }
+
+    .premium-input-focus {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--premium-primary);
+        transform: scaleX(0);
+        transition: var(--premium-transition);
+    }
+
+    .premium-form-control:focus + .premium-input-focus {
+        transform: scaleX(1);
+    }
+
+    .premium-select-wrapper {
+        position: relative;
+    }
+
+    .premium-form-select {
+        width: 100%;
+        padding: 0.75rem 3rem 0.75rem 1rem;
+        border: 2px solid var(--premium-gray-200);
+        border-radius: var(--premium-border-radius);
+        background: var(--premium-light);
+        font-size: 0.875rem;
+        transition: var(--premium-transition);
+        outline: none;
+        appearance: none;
+    }
+
+        .premium-form-select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+    .premium-select-icon {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--premium-gray-500);
+        pointer-events: none;
+    }
+
+    .premium-action-btn {
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--premium-gray-200);
+        border-radius: var(--premium-border-radius);
+        background: var(--premium-light);
+        color: var(--premium-gray-600);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--premium-transition);
+        text-decoration: none;
+    }
+
+        .premium-action-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+            transform: translateY(-2px);
+        }
+
+    /* Premium Table */
+    .premium-table-container {
+        background: var(--premium-light);
+        border-radius: var(--premium-border-radius-lg);
+        box-shadow: var(--premium-shadow);
+        border: 1px solid var(--premium-gray-200);
+        overflow: hidden;
+    }
+
+    .premium-table-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: linear-gradient(135deg, var(--premium-gray-50), var(--premium-gray-100));
+        border-bottom: 1px solid var(--premium-gray-200);
+    }
+
+    .premium-table-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--premium-border-radius);
+        background: var(--premium-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--premium-light);
+        margin-right: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .premium-table-title {
+        margin: 0;
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        margin-right: 1rem;
+    }
+
+    .premium-table-badge {
+        background: var(--premium-primary);
+        color: var(--premium-light);
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+
+    .premium-table-controls {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .premium-view-toggle {
+        display: flex;
+        background: var(--premium-light);
+        border: 2px solid var(--premium-gray-200);
+        border-radius: var(--premium-border-radius);
+        overflow: hidden;
+    }
+
+        .premium-view-toggle input[type="radio"] {
+            display: none;
+        }
+
+        .premium-view-toggle label {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: var(--premium-transition);
+            color: var(--premium-gray-600);
+            border: none;
+            background: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .premium-view-toggle input[type="radio"]:checked + label {
+            background: var(--premium-primary);
+            color: var(--premium-light);
+        }
+
+    .premium-refresh-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: #667eea;
+        color: var(--premium-light);
+        border: none;
+        border-radius: var(--premium-border-radius);
+        font-weight: 600;
+        transition: var(--premium-transition);
+    }
+
+        .premium-refresh-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+    .premium-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .premium-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .premium-th {
+        background: var(--premium-gray-50);
+        border-bottom: 2px solid var(--premium-gray-200);
+        padding: 1rem;
+        text-align: left;
+        font-weight: 700;
+        color: var(--premium-gray-700);
+        position: relative;
+        user-select: none;
+    }
+
+        .premium-th.sortable {
+            cursor: pointer;
+            transition: var(--premium-transition);
+        }
+
+            .premium-th.sortable:hover {
+                background: var(--premium-gray-100);
+            }
+
+    .premium-th-content {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .sort-icon {
+        margin-left: auto;
+        opacity: 0.5;
+        transition: var(--premium-transition);
+    }
+
+    .premium-tr {
+        border-bottom: 1px solid var(--premium-gray-200);
+        transition: var(--premium-transition);
+    }
+
+        .premium-tr:hover {
+            background: rgba(102, 126, 234, 0.02);
+        }
+
+    .premium-td {
+        padding: 1.25rem 1rem;
+        vertical-align: middle;
+    }
+
+    /* Table Cell Components */
+    .premium-item-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .premium-item-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: var(--premium-border-radius);
+        background: var(--premium-primary);
+        color: var(--premium-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .premium-avatar-glow {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+        animation: premium-glow 3s ease-in-out infinite alternate;
+    }
+
+    .premium-item-id {
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .premium-item-label {
+        font-size: 0.75rem;
+        color: var(--premium-gray-500);
+    }
+
+    .premium-email-info {
+        text-align: left;
+    }
+
+    .premium-email-main {
+        font-weight: 600;
+        color: var(--premium-gray-900);
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .premium-email-label {
+        font-size: 0.75rem;
+        color: var(--premium-gray-500);
+    }
+
+    .premium-phone-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background: rgba(79, 172, 254, 0.1);
+        color: #4facfe;
+        border: 1px solid rgba(79, 172, 254, 0.3);
+    }
+
+    .premium-role-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border: 1px solid;
+    }
+
+    .role-admin {
+        background: rgba(250, 112, 154, 0.1);
+        color: #fa709a;
+        border-color: rgba(250, 112, 154, 0.3);
+    }
+
+    .role-manager {
+        background: rgba(67, 233, 123, 0.1);
+        color: #43e97b;
+        border-color: rgba(67, 233, 123, 0.3);
+    }
+
+    .role-user {
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
+        border-color: rgba(102, 126, 234, 0.3);
+    }
+
+    .premium-location-info {
+        text-align: left;
+    }
+
+    .premium-location-main {
+        font-weight: 600;
+        color: var(--premium-gray-900);
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .premium-location-label {
+        font-size: 0.75rem;
+        color: var(--premium-gray-500);
+    }
+
+    .premium-date-info {
+        text-align: left;
+    }
+
+    .premium-date-main {
+        font-weight: 600;
+        color: var(--premium-gray-900);
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .premium-date-label {
+        font-size: 0.75rem;
+        color: var(--premium-gray-500);
+    }
+
+    .premium-null-value {
+        color: var(--premium-gray-400);
+        font-style: italic;
+        font-size: 0.875rem;
+    }
+
+    .premium-action-group {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .premium-action-btn {
+        width: 35px;
+        height: 35px;
+        border: 1px solid var(--premium-gray-300);
+        border-radius: var(--premium-border-radius);
+        background: var(--premium-light);
+        color: var(--premium-gray-600);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--premium-transition);
+        text-decoration: none;
+        font-size: 0.875rem;
+    }
+
+    .action-view:hover {
+        border-color: #4facfe;
+        color: #4facfe;
+        background: rgba(79, 172, 254, 0.05);
+    }
+
+    .action-edit:hover {
+        border-color: #667eea;
+        color: #667eea;
+        background: rgba(102, 126, 234, 0.05);
+    }
+
+    .action-message:hover {
+        border-color: #43e97b;
+        color: #43e97b;
+        background: rgba(67, 233, 123, 0.05);
+    }
+
+    .action-delete:hover {
+        border-color: #fa709a;
+        color: #fa709a;
+        background: rgba(250, 112, 154, 0.05);
+    }
+
+    .premium-empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+    }
+
+    .premium-empty-content {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .premium-empty-icon {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: var(--premium-gray-100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        font-size: 3rem;
+        color: var(--premium-gray-400);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .premium-empty-glow {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+        animation: premium-glow 4s ease-in-out infinite alternate;
+    }
+
+    .premium-empty-title {
+        font-weight: 700;
+        color: var(--premium-gray-900);
+        margin-bottom: 1rem;
+    }
+
+    .premium-empty-message {
+        color: var(--premium-gray-600);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    /* Premium Pagination */
+    .premium-pagination-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: var(--premium-gray-50);
+        border-top: 1px solid var(--premium-gray-200);
+    }
+
+    .premium-pagination-info {
+        color: var(--premium-gray-600);
+        font-size: 0.875rem;
+    }
+
+    .premium-pagination-list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 0.25rem;
+    }
+
+    .premium-pagination-item {
+        margin: 0;
+    }
+
+    .premium-pagination-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--premium-gray-300);
+        border-radius: var(--premium-border-radius);
+        background: var(--premium-light);
+        color: var(--premium-gray-600);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--premium-transition);
+    }
+
+        .premium-pagination-link:hover {
+            border-color: #667eea;
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+    .premium-pagination-item.active .premium-pagination-link {
+        background: var(--premium-primary);
+        border-color: transparent;
+        color: var(--premium-light);
+    }
+
+    .premium-pagination-item.disabled .premium-pagination-link {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+        .premium-pagination-item.disabled .premium-pagination-link:hover {
+            border-color: var(--premium-gray-300);
+            color: var(--premium-gray-600);
+            background: var(--premium-light);
+        }
+
+    /* Animations */
+    @@keyframes premium-glow {
+        0%
+
+    {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+
+    }
+
+    @@keyframes premium-float {
+        0%, 100%
+
+    {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    }
+
+    @@keyframes premium-chart-grow {
+        0%
+
+    {
+        height: 0;
+    }
+
+    100% {
+        height: var(--height);
+    }
+
+    }
+
+    /* Responsive Design */
+    @@media (max-width: 768px) {
+        .premium-header-content
+
+    {
+        padding: 2rem 1rem;
+    }
+
+    .premium-title {
+        font-size: 2rem;
+    }
+
+    .premium-subtitle {
+        font-size: 1rem;
+    }
+
+    .premium-stats-card {
+        margin-bottom: 1rem;
+    }
+
+    .premium-search-content {
+        padding: 1rem;
+    }
+
+    .premium-table-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .premium-table-controls {
+        justify-content: center;
+    }
+
+    .premium-pagination-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .premium-action-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .premium-btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    }
+
+    @@media (max-width: 576px) {
+        .premium-item-info
+
+    {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .premium-action-group {
+        flex-wrap: wrap;
+    }
+
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let currentPage = 1;
+        let itemsPerPage = 10;
+        let filteredRows = [];
+        let allRows = [];
+
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        const tableBody = document.getElementById('userTableBody');
+        allRows = Array.from(tableBody.querySelectorAll('.premium-tr'));
+        filteredRows = [...allRows];
+
+        console.log("[v0] Total rows found:", allRows.length);
+        console.log("[v0] Filtered rows:", filteredRows.length);
+
+        initializePagination();
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const roleFilter = document.getElementById('roleFilter');
+        const cityFilter = document.getElementById('cityFilter');
+        const totalCount = document.getElementById('totalCount');
+
+        function filterTable() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedRole = roleFilter.value;
+            const selectedCity = cityFilter.value;
+
+            filteredRows = allRows.filter(row => {
+                const fullName = row.dataset.fullname?.toLowerCase() || '';
+                const email = row.dataset.email?.toLowerCase() || '';
+                const phone = row.dataset.phone?.toLowerCase() || '';
+                const role = row.dataset.role || '';
+                const city = row.dataset.city || '';
+
+                const matchesSearch = fullName.includes(searchTerm) ||
+                                    email.includes(searchTerm) ||
+                                    phone.includes(searchTerm);
+                const matchesRole = !selectedRole || role === selectedRole;
+                const matchesCity = !selectedCity || city === selectedCity;
+
+                return matchesSearch && matchesRole && matchesCity;
+            });
+
+            currentPage = 1;
+            updatePagination();
+            displayCurrentPage();
+            totalCount.textContent = `${filteredRows.length} users`;
+        }
+
+        function initializePagination() {
+            const itemsPerPageSelect = document.getElementById('itemsPerPage');
+            itemsPerPageSelect.addEventListener('change', function() {
+                itemsPerPage = parseInt(this.value);
+                currentPage = 1;
+                updatePagination();
+                displayCurrentPage();
+            });
+
+            updatePagination();
+            displayCurrentPage();
+        }
+
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredRows.length / itemsPerPage);
+            const paginationList = document.getElementById('pagination');
+
+            console.log("[v0] Current page:", currentPage);
+            console.log("[v0] Total pages:", totalPages);
+            console.log("[v0] Items per page:", itemsPerPage);
+
+            paginationList.innerHTML = '';
+
+            if (totalPages === 0) {
+                const noDataItem = document.createElement('li');
+                noDataItem.className = 'premium-pagination-item disabled';
+                noDataItem.innerHTML = '<span class="premium-pagination-link">No data</span>';
+                paginationList.appendChild(noDataItem);
+                return;
+            }
+
+            // Previous button
+            const prevItem = document.createElement('li');
+            prevItem.className = `premium-pagination-item ${currentPage === 1 ? 'disabled' : ''}`;
+            if (currentPage === 1) {
+                prevItem.innerHTML = `
+                    <span class="premium-pagination-link">
+                        <i class="bi bi-chevron-left"></i>
+                    </span>
+                `;
+            } else {
+                prevItem.innerHTML = `
+                    <a class="premium-pagination-link" href="#" onclick="changePage(${currentPage - 1}); return false;">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                `;
+            }
+            paginationList.appendChild(prevItem);
+
+            // Page numbers
+            const startPage = Math.max(1, currentPage - 2);
+            const endPage = Math.min(totalPages, currentPage + 2);
+
+            if (startPage > 1) {
+                const firstItem = document.createElement('li');
+                firstItem.className = 'premium-pagination-item';
+                firstItem.innerHTML = `<a class="premium-pagination-link" href="#" onclick="changePage(1); return false;">1</a>`;
+                paginationList.appendChild(firstItem);
+
+                if (startPage > 2) {
+                    const dotsItem = document.createElement('li');
+                    dotsItem.className = 'premium-pagination-item';
+                    dotsItem.innerHTML = `<span class="premium-pagination-link">...</span>`;
+                    paginationList.appendChild(dotsItem);
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const pageItem = document.createElement('li');
+                pageItem.className = `premium-pagination-item ${i === currentPage ? 'active' : ''}`;
+
+                if (i === currentPage) {
+                    pageItem.innerHTML = `<span class="premium-pagination-link">${i}</span>`;
+                } else {
+                    pageItem.innerHTML = `<a class="premium-pagination-link" href="#" onclick="changePage(${i}); return false;">${i}</a>`;
+                }
+                paginationList.appendChild(pageItem);
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const dotsItem = document.createElement('li');
+                    dotsItem.className = 'premium-pagination-item';
+                    dotsItem.innerHTML = `<span class="premium-pagination-link">...</span>`;
+                    paginationList.appendChild(dotsItem);
+                }
+
+                const lastItem = document.createElement('li');
+                lastItem.className = 'premium-pagination-item';
+                lastItem.innerHTML = `<a class="premium-pagination-link" href="#" onclick="changePage(${totalPages}); return false;">${totalPages}</a>`;
+                paginationList.appendChild(lastItem);
+            }
+
+            // Next button
+            const nextItem = document.createElement('li');
+            nextItem.className = `premium-pagination-item ${currentPage === totalPages ? 'disabled' : ''}`;
+            if (currentPage === totalPages || totalPages === 0) {
+                nextItem.innerHTML = `
+                    <span class="premium-pagination-link">
+                        <i class="bi bi-chevron-right"></i>
+                    </span>
+                `;
+            } else {
+                nextItem.innerHTML = `
+                    <a class="premium-pagination-link" href="#" onclick="changePage(${currentPage + 1}); return false;">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                `;
+            }
+            paginationList.appendChild(nextItem);
+
+            updatePaginationInfo();
+        }
+
+        function displayCurrentPage() {
+            console.log("[v0] Displaying page:", currentPage);
+
+            // Hide all rows first
+            allRows.forEach(row => {
+                row.style.display = 'none';
+            });
+
+            // Calculate start and end indices
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            console.log("[v0] Start index:", startIndex, "End index:", endIndex);
+            console.log("[v0] Filtered rows length:", filteredRows.length);
+
+            // Show rows for current page
+            const rowsToShow = filteredRows.slice(startIndex, endIndex);
+            console.log("[v0] Rows to show:", rowsToShow.length);
+
+            rowsToShow.forEach((row, index) => {
+                row.style.display = '';
+                console.log("[v0] Showing row:", index, row.dataset.fullname);
+            });
+
+            if (rowsToShow.length === 0 && filteredRows.length > 0) {
+                console.log("[v0] No rows to show on current page, going to page 1");
+                changePage(1);
+            }
+        }
+
+        function updatePaginationInfo() {
+            const startIndex = (currentPage - 1) * itemsPerPage + 1;
+            const endIndex = Math.min(currentPage * itemsPerPage, filteredRows.length);
+
+            document.getElementById('showingStart').textContent = filteredRows.length > 0 ? startIndex : 0;
+            document.getElementById('showingEnd').textContent = endIndex;
+            document.getElementById('totalEntries').textContent = filteredRows.length;
+        }
+
+        window.changePage = function(page) {
+            const totalPages = Math.ceil(filteredRows.length / itemsPerPage);
+            console.log("[v0] Changing to page:", page, "Total pages:", totalPages);
+
+            if (page >= 1 && page <= totalPages) {
+                currentPage = page;
+                updatePagination();
+                displayCurrentPage();
+            }
+            return false; // Prevent default link behavior
+        };
+
+        window.goToFirstPage = function() {
+            changePage(1);
+            return false;
+        };
+
+        window.goToLastPage = function() {
+            const totalPages = Math.ceil(filteredRows.length / itemsPerPage);
+            changePage(totalPages);
+            return false;
+        };
+
+        // Event listeners for search and filters
+        searchInput.addEventListener('input', filterTable);
+        roleFilter.addEventListener('change', filterTable);
+        cityFilter.addEventListener('change', filterTable);
+    });
+
+    function changePage(page) {
+        const totalPages = Math.ceil(filteredRows.length / itemsPerPage);
+        if (page >= 1 && page <= totalPages) {
+            currentPage = page;
+            updatePagination();
+            displayCurrentPage();
+        }
+    }
+
+    function goToFirstPage() {
+        changePage(1);
+    }
+
+    function goToLastPage() {
+        const totalPages = Math.ceil(filteredRows.length / itemsPerPage);
+        changePage(totalPages);
+    }
+
+    // Clear filters function
+    function clearFilters() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('roleFilter').value = '';
+        document.getElementById('cityFilter').value = '';
+
+        filteredRows = [...allRows];
+        currentPage = 1;
+        updatePagination();
+        displayCurrentPage();
+
+        // Update count
+        document.getElementById('totalCount').textContent = `${filteredRows.length} users`;
+    }
+
+    // Refresh table function
+    function refreshTable() {
+        location.reload();
+    }
+
+
+    // Delete confirmation
+    function confirmDelete(userId, userName) {
+        document.getElementById('deleteUserName').textContent = userName;
+        document.getElementById('confirmDeleteBtn').href = `/User/Delete/${userId}`;
+
+        const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        deleteModal.show();
+    }
+
+</script>
+

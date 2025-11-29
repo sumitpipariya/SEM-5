@@ -1,0 +1,270 @@
+﻿@model My_Project.Models.CategoryModel
+@{
+    ViewData["Title"] = "Add New Category";
+}
+
+<div class="main" id="main">
+    <div class="container-fluid py-5 bg-light min-vh-100 mt-4">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10">
+                <!-- Page Header -->
+                <div class="text-center mb-5">
+                    <div class="d-inline-flex align-items-center justify-content-center bg-warning bg-gradient rounded-circle shadow mb-3"
+                         style="width: 80px; height: 80px;">
+                        <i class="bx bx-category text-white fs-1"></i>
+                    </div>
+                    <h1 class="display-6 fw-bold mb-2 text-primary">Create New Category</h1>
+                    <p class="text-muted fs-5">Add a new product category to the TechLux catalog</p>
+                </div>
+
+                <!-- Main Form Card -->
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                    <!-- Card Header -->
+                    <div class="card-header bg-white border-bottom py-4">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="mb-0 fw-bold text-primary">Category Information</h4>
+                                <small class="text-muted">Please fill in all required fields marked with *</small>
+                            </div>
+                            <div class="col-auto">
+                                <a asp-controller="Category" asp-action="GetAllCategory" class="btn btn-outline-secondary rounded-pill px-4">
+                                    <i class="bx bx-arrow-back me-2"></i>Back to List
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Body -->
+                    <div class="card-body p-5">
+                        <form asp-controller="Category" asp-action="AddEdit" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" asp-for="CategoryId" />
+                            <input type="hidden" asp-for="UserId" value="@Context.Session.GetInt32("UserID")" />
+
+                            <div class="row g-4">
+                                <!-- Basic Information Section -->
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="bg-primary bg-gradient rounded-circle p-2 me-3">
+                                            <i class="bx bx-info-circle text-white fs-5"></i>
+                                        </div>
+                                        <h5 class="mb-0 fw-bold text-warning">Basic Information</h5>
+                                    </div>
+                                </div>
+
+                                <!-- Category Name -->
+                                <div class="col-md-8">
+                                    <label asp-for="CategoryName" class="form-label fw-semibold text-dark">
+                                        <i class="bx bx-category me-2 text-warning"></i>Category Name *
+                                    </label>
+                                    <input asp-for="CategoryName" class="form-control form-control-lg border-0 bg-light rounded-3 shadow-sm"
+                                           placeholder="Enter category name (e.g., Electronics, Computers, Mobile Phones)" />
+                                    <span asp-validation-for="CategoryName" class="text-danger small mt-1 d-block"></span>
+                                    <small class="text-muted">Choose a descriptive name that clearly identifies the product category</small>
+                                </div>
+
+                                <!-- Category Preview Section -->
+                                <div class="col-12 mt-5">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="bg-info bg-gradient rounded-circle p-2 me-3">
+                                            <i class="bx bx-show text-white fs-5"></i>
+                                        </div>
+                                        <h5 class="mb-0 fw-bold text-warning">Category Preview</h5>
+                                    </div>
+                                </div>
+
+                                <!-- Category Preview Card -->
+                                <div class="col-12">
+                                    <div class="card bg-gradient-light border-0 rounded-3">
+                                        <div class="card-body p-4">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-2 text-center">
+                                                    <div class="bg-warning bg-gradient rounded-circle p-3 d-inline-flex">
+                                                        <i class="bx bx-category text-white fs-2"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h5 class="mb-1 fw-bold" id="categoryPreviewName">Category Name</h5>
+                                                    <p class="text-muted mb-0">Category ID: <span id="categoryPreviewId">Auto-generated</span></p>
+                                                    <small class="text-muted">Created by: <span id="categoryPreviewUser">Not selected</span></small>
+                                                </div>
+                                                <div class="col-md-4 text-end">
+                                                    <span class="badge bg-success fs-6 px-3 py-2">Active</span>
+                                                    <p class="text-muted small mb-0 mt-2">Ready to assign products</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Popular Categories Section -->
+                                <div class="col-12 mt-5">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="bg-success bg-gradient rounded-circle p-2 me-3">
+                                            <i class="bx bx-trending-up text-white fs-5"></i>
+                                        </div>
+                                        <h5 class="mb-0 fw-bold text-warning">Popular Categories</h5>
+                                    </div>
+                                </div>
+
+                                <!-- Popular Categories Display -->
+                                <div class="col-12">
+                                    <div class="row g-3">
+                                        <div class="col-md-3">
+                                            <div class="card border-0 bg-light text-center p-3">
+                                                <i class="bx bx-mobile-alt text-primary fs-2 mb-2"></i>
+                                                <h6 class="mb-0">Mobile Phones</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card border-0 bg-light text-center p-3">
+                                                <i class="bx bx-laptop text-info fs-2 mb-2"></i>
+                                                <h6 class="mb-0">Computers</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card border-0 bg-light text-center p-3">
+                                                <i class="bx bx-headphone text-success fs-2 mb-2"></i>
+                                                <h6 class="mb-0">Audio</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card border-0 bg-light text-center p-3">
+                                                <i class="bx bx-joystick text-warning fs-2 mb-2"></i>
+                                                <h6 class="mb-0">Gaming</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="row mt-5">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                                        <button type="submit" class="btn btn-warning btn-lg px-5 py-3 rounded-pill shadow fw-bold">
+                                            <i class="bx bx-save me-2"></i>Save Category
+                                        </button>
+                                        <button type="reset" class="btn btn-outline-secondary btn-lg px-5 py-3 rounded-pill">
+                                            <i class="bx bx-reset me-2"></i>Reset Form
+                                        </button>
+                                        <a asp-controller="Category" asp-action="GetAllCategories" class="btn btn-outline-danger btn-lg px-5 py-3 rounded-pill">
+                                            <i class="bx bx-x me-2"></i>Cancel
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="successToast" class="toast border-0 shadow-lg" role="alert">
+        <div class="toast-header bg-success text-white border-0">
+            <i class="bx bx-check-circle me-2"></i>
+            <strong class="me-auto">Success</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body bg-white">
+            Category created successfully!
+        </div>
+    </div>
+</div>
+
+<!-- Error Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="errorToast" class="toast border-0 shadow-lg" role="alert">
+        <div class="toast-header bg-danger text-white border-0">
+            <i class="bx bx-error-circle me-2"></i>
+            <strong class="me-auto">Error</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body bg-white">
+            <span id="errorMessage">Please check the form for errors and try again.</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Update category preview
+    function updateCategoryPreview() {
+        const categoryNameInput = document.querySelector('input[asp-for="CategoryName"]');
+        const userSelect = document.querySelector('select[asp-for="UserId"]');
+
+        // Update category name preview
+        const categoryName = categoryNameInput.value || 'Category Name';
+        document.getElementById('categoryPreviewName').textContent = categoryName;
+
+        // Update user preview
+        const selectedUser = userSelect.options[userSelect.selectedIndex];
+        const userName = selectedUser && selectedUser.value ? selectedUser.text : 'Not selected';
+        document.getElementById('categoryPreviewUser').textContent = userName;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+
+        // Form submission handling
+        form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin me-2"></i>Creating Category...';
+            submitBtn.disabled = true;
+
+            // Re-enable button after 5 seconds (in case of errors)
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 5000);
+        });
+
+        // Reset form functionality
+        const resetBtn = form.querySelector('button[type="reset"]');
+        resetBtn.addEventListener('click', function() {
+            form.reset();
+            updateCategoryPreview();
+        });
+
+        // Add event listeners for preview updates
+        document.querySelector('input[asp-for="CategoryName"]').addEventListener('input', updateCategoryPreview);
+        document.querySelector('select[asp-for="UserId"]').addEventListener('change', updateCategoryPreview);
+
+        // Category name formatting
+        const categoryNameInput = document.querySelector('input[asp-for="CategoryName"]');
+        if (categoryNameInput) {
+            categoryNameInput.addEventListener('input', function() {
+                // Capitalize first letter of each word
+                this.value = this.value.replace(/\b\w/g, function(char) {
+                    return char.toUpperCase();
+                });
+            });
+        }
+
+        // Initialize preview
+        updateCategoryPreview();
+
+        // Show success toast
+    @if (TempData["Success"] != null)
+    {
+        <text>
+                    const successToast = new bootstrap.Toast(document.getElementById('successToast'));
+                    successToast.show();
+        </text>
+    }
+
+        // Show error toast
+    @if (TempData["Error"] != null)
+    {
+        <text>
+                    document.getElementById('errorMessage').textContent = '@TempData["Error"]';
+                    const errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
+                    errorToast.show();
+        </text>
+    }
+    });
+</script>

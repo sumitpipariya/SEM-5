@@ -1,0 +1,339 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\user\\getalluser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\user\\getalluser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\shared\\_layout_user.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\shared\\_layout_user.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\brand\\getallbrand.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\brand\\getallbrand.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\controllers\\addtoordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\controllers\\addtoordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\addtoorder\\getorderitems.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\addtoorder\\getorderitems.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\models\\orderitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\models\\orderitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\addtoorder\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\addtoorder\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\userdashboard\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\userdashboard\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\controllers\\userdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\controllers\\userdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\userdashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\userdashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\models\\ordermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\models\\ordermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\addtoorder\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\addtoorder\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\controllers\\addtocartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\controllers\\addtocartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\addtocart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\addtocart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\brand\\branddetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\brand\\branddetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\orders\\getallorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\orders\\getallorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\orderitems\\getallorderitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\orderitems\\getallorderitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 635,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GetAllUser.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\User\\GetAllUser.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\User\\GetAllUser.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\User\\GetAllUser.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\User\\GetAllUser.cshtml",
+              "ViewState": "AgIAALcBAAAAAAAAAAAEwMUBAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-14T10:16:12.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetAllBrand.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\Brand\\GetAllBrand.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\Brand\\GetAllBrand.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\Brand\\GetAllBrand.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\Brand\\GetAllBrand.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAQwGoAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-10T05:39:46.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderItemModel.cs",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Models\\OrderItemModel.cs",
+              "RelativeDocumentMoniker": "My_Project\\Models\\OrderItemModel.cs",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Models\\OrderItemModel.cs",
+              "RelativeToolTip": "My_Project\\Models\\OrderItemModel.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAA8wDMAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T12:45:39.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProductModel.cs",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Models\\ProductModel.cs",
+              "RelativeDocumentMoniker": "My_Project\\Models\\ProductModel.cs",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Models\\ProductModel.cs",
+              "RelativeToolTip": "My_Project\\Models\\ProductModel.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAA8wDMAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T13:42:27.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\UserDashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\UserDashboard\\Index.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\UserDashboard\\Index.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\UserDashboard\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T13:49:16.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GetOrderItems.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\AddToOrder\\GetOrderItems.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\AddToOrder\\GetOrderItems.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\AddToOrder\\GetOrderItems.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\AddToOrder\\GetOrderItems.cshtml",
+              "ViewState": "AgIAAEUBAAAAAAAAAAAQwFQBAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T13:48:25.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\AddToOrder\\Index.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\AddToOrder\\Index.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\AddToOrder\\Index.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\AddToOrder\\Index.cshtml",
+              "ViewState": "AgIAAAwEAAAAAAAAAAAgwB0EAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T13:25:47.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\UserDashboard\\Details.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\UserDashboard\\Details.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\UserDashboard\\Details.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\UserDashboard\\Details.cshtml",
+              "ViewState": "AgIAAOkBAAAAAAAAAAAowAACAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T13:17:56.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\AddToCart\\Index.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\AddToCart\\Index.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\AddToCart\\Index.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\AddToCart\\Index.cshtml",
+              "ViewState": "AgIAAMMAAAAAAAAAAAAAwEkBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T13:17:32.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\AddToOrder\\Create.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\AddToOrder\\Create.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\AddToOrder\\Create.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\AddToOrder\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T13:13:10.971Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OrderModel.cs",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Models\\OrderModel.cs",
+              "RelativeDocumentMoniker": "My_Project\\Models\\OrderModel.cs",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Models\\OrderModel.cs",
+              "RelativeToolTip": "My_Project\\Models\\OrderModel.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA8wBYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T12:54:49.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddToOrderController.cs",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\AddToOrderController.cs",
+              "RelativeDocumentMoniker": "My_Project\\Controllers\\AddToOrderController.cs",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\AddToOrderController.cs",
+              "RelativeToolTip": "My_Project\\Controllers\\AddToOrderController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBMAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T12:57:49.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AddToCartController.cs",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\AddToCartController.cs",
+              "RelativeDocumentMoniker": "My_Project\\Controllers\\AddToCartController.cs",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\AddToCartController.cs",
+              "RelativeToolTip": "My_Project\\Controllers\\AddToCartController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBMAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T12:43:32.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "BrandDetails.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\Brand\\BrandDetails.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\Brand\\BrandDetails.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\Brand\\BrandDetails.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\Brand\\BrandDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T12:38:12.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GetAllOrder.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\Orders\\GetAllOrder.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\Orders\\GetAllOrder.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\Orders\\GetAllOrder.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\Orders\\GetAllOrder.cshtml",
+              "ViewState": "AgIAAH0HAAAAAAAAAAAvwIwHAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:56:51.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "My_Project\\Controllers\\OrdersController.cs",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "My_Project\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T10:56:35.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "GetAllOrderItem.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\OrderItems\\GetAllOrderItem.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\OrderItems\\GetAllOrderItem.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\OrderItems\\GetAllOrderItem.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\OrderItems\\GetAllOrderItem.cshtml",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAAAK8AAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-09T10:51:36.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserDashboardController.cs",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\UserDashboardController.cs",
+              "RelativeDocumentMoniker": "My_Project\\Controllers\\UserDashboardController.cs",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\UserDashboardController.cs",
+              "RelativeToolTip": "My_Project\\Controllers\\UserDashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T13:02:09.538Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout_User.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\Shared\\_Layout_User.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\Shared\\_Layout_User.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\Shared\\_Layout_User.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\Shared\\_Layout_User.cshtml",
+              "ViewState": "AgIAAAUCAAAAAAAAAAAewA8CAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-07T12:36:28.234Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 191,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+﻿    @model My_Project.Models.UserModel
+@{
+    ViewData["Title"] = "Add New User";
+}
+
+<div class="main" id="main">
+<div class="container-fluid py-5 bg-light min-vh-100 mt-4">
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-10">
+            <!-- Page Header -->
+            <div class="text-center mb-5">
+                <div class="d-inline-flex align-items-center justify-content-center bg-warning bg-gradient rounded-circle shadow mb-3"
+                     style="width: 80px; height: 80px;">
+                    <i class="bx bx-user-plus text-white fs-1"></i>
+                </div>
+                <h1 class="display-6 fw-bold mb-2 text-primary">Create New User</h1>
+                <p class="text-muted fs-5">Add a new member to the TechLux community</p>
+            </div>
+
+            <!-- Main Form Card -->
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <!-- Card Header -->
+                <div class="card-header bg-white border-bottom py-4">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h4 class="mb-0 fw-bold text-primary">User Information</h4>
+                            <small class="text-muted">Please fill in all required fields marked with *</small>
+                        </div>
+                        <div class="col-auto">
+                            <a asp-controller="User" asp-action="GetAllUser" class="btn btn-outline-secondary rounded-pill px-4">
+                                <i class="bx bx-arrow-back me-2"></i>Back to List
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Body -->
+                <div class="card-body p-5 ">
+                        <form asp-controller="User" asp-action="AddEdit" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <input type="hidden" asp-for="UserID" />
+
+                        <div class="row g-4">
+                            <!-- Personal Information Section -->
+                            <div class="col-12">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="bg-primary bg-gradient rounded-circle p-2 me-3">
+                                        <i class="bx bx-user text-white fs-5"></i>
+                                    </div>
+                                    <h5 class="mb-0 fw-bold text-warning">Personal Information</h5>
+                                </div>
+                            </div>
+
+                            <!-- Full Name -->
+                            <div class="col-md-6">
+                                <label asp-for="FullName" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-user me-2 text-warning"></i>Full Name *
+                                </label>
+                                <input asp-for="FullName" class="form-control form-control-lg border-0 bg-light rounded-3 shadow-sm"
+                                       placeholder="Enter full name" />
+                                <span asp-validation-for="FullName" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <label asp-for="Email" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-envelope me-2 text-warning"></i>Email Address *
+                                </label>
+                                <input asp-for="Email" class="form-control form-control-lg border-0 bg-light rounded-3 shadow-sm"
+                                       placeholder="Enter email address" type="email" />
+                                <span asp-validation-for="Email" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="col-md-6">
+                                <label asp-for="Password" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-lock me-2 text-warning"></i>Password *
+                                </label>
+                                <div class="position-relative">
+                                    <input asp-for="Password" class="form-control form-control-lg border-0 bg-light rounded-3 shadow-sm pe-5"
+                                           placeholder="Enter password" type="text" id="passwordField" />
+                                    <button type="button" class="btn btn-link position-absolute top-50 end-0 translate-middle-y me-2 text-muted border-0"
+                                            onclick="togglePassword()"> 
+                                        <i class="bx bx-show" id="passwordIcon"></i>
+                                    </button>
+                                </div>
+                                <span asp-validation-for="Password" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="col-md-6">
+                                <label asp-for="Phone" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-phone me-2 text-warning"></i>Phone Number
+                                </label>
+                                <input asp-for="Phone" class="form-control form-control-lg border-0 bg-light rounded-3 shadow-sm"
+                                       placeholder="Enter phone number" />
+                                <span asp-validation-for="Phone" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <!-- Role -->
+                            <div class="col-md-6">
+                                <label asp-for="Role" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-shield me-2 text-warning"></i>User Role *
+                                </label>
+                                <select asp-for="Role" class="form-select form-select-lg border-0 bg-light rounded-3 shadow-sm">
+                                    <option value="">Select Role</option>
+                                    <option value="User">User</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                                <span asp-validation-for="Role" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <!-- Address Information Section -->
+                            <div class="col-12 mt-5">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="bg-success bg-gradient rounded-circle p-2 me-3">
+                                        <i class="bx bx-map text-white fs-5"></i>
+                                    </div>
+                                    <h5 class="mb-0 fw-bold text-warning">Address Information</h5>
+                                </div>
+                            </div>
+
+                            <!-- Address Line -->
+                            <div class="col-12">
+                                <label asp-for="AddressLine" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-home me-2 text-warning"></i>Address Line
+                                </label>
+                                <textarea asp-for="AddressLine" class="form-control border-0 bg-light rounded-3 shadow-sm"
+                                          rows="3" placeholder="Enter complete address"></textarea>
+                                <span asp-validation-for="AddressLine" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <!-- City -->
+                            <div class="col-md-4">
+                                <label asp-for="City" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-buildings me-2 text-warning"></i>City
+                                </label>
+                                <input asp-for="City" class="form-control form-control-lg border-0 bg-light rounded-3 shadow-sm"
+                                       placeholder="Enter city" />
+                                <span asp-validation-for="City" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <!-- State -->
+                            <div class="col-md-4">
+                                <label asp-for="State" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-map-alt me-2 text-warning"></i>State
+                                </label>
+                                <input asp-for="State" class="form-control form-control-lg border-0 bg-light rounded-3 shadow-sm"
+                                       placeholder="Enter state" />
+                                <span asp-validation-for="State" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <!-- Pincode -->
+                            <div class="col-md-4">
+                                <label asp-for="Pincode" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-map-pin me-2 text-warning"></i>Pincode
+                                </label>
+                                <input asp-for="Pincode" class="form-control form-control-lg border-0 bg-light rounded-3 shadow-sm"
+                                       placeholder="Enter pincode" />
+                                <span asp-validation-for="Pincode" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                                    <button type="submit" class="btn btn-warning btn-lg px-5 py-3 rounded-pill shadow fw-bold">
+                                        <i class="bx bx-save me-2"></i>Submit
+                                    </button>
+                                    <button type="reset" class="btn btn-outline-secondary btn-lg px-5 py-3 rounded-pill">
+                                        <i class="bx bx-reset me-2"></i>Reset Form
+                                    </button>
+                                    <a asp-controller="User" asp-action="GetAllUser" class="btn btn-outline-danger btn-lg px-5 py-3 rounded-pill">
+                                        <i class="bx bx-x me-2"></i>Cancel
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Success Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="successToast" class="toast border-0 shadow-lg" role="alert">
+        <div class="toast-header bg-success text-white border-0">
+            <i class="bx bx-check-circle me-2"></i>
+            <strong class="me-auto">Success</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body bg-white">
+            User created successfully!
+        </div>
+    </div>
+</div>
+
+<!-- Error Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="errorToast" class="toast border-0 shadow-lg" role="alert">
+        <div class="toast-header bg-danger text-white border-0">
+            <i class="bx bx-error-circle me-2"></i>
+            <strong class="me-auto">Error</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body bg-white">
+            <span id="errorMessage">Please check the form for errors and try again.</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Password toggle functionality
+    function togglePassword() {
+        const passwordField = document.getElementById('passwordField');
+        const passwordIcon = document.getElementById('passwordIcon');
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            passwordIcon.className = 'bx bx-hide';
+        } else {
+            passwordField.type = 'password';
+            passwordIcon.className = 'bx bx-show';
+        }
+    }
+
+    // Form functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+
+        // Form submission handling
+        form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin me-2"></i>Creating User...';
+            submitBtn.disabled = true;
+
+            // Re-enable button after 5 seconds (in case of errors)
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 5000);
+        });
+
+        // Reset form functionality
+        const resetBtn = form.querySelector('button[type="reset"]');
+        resetBtn.addEventListener('click', function() {
+            form.reset();
+        });
+
+        // Phone number formatting (numbers only)
+        const phoneInput = document.querySelector('input[asp-for="Phone"]');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9+\-\s()]/g, '');
+            });
+        }
+
+        // Pincode validation (numbers only, max 10 digits)
+        const pincodeInput = document.querySelector('input[asp-for="Pincode"]');
+        if (pincodeInput) {
+            pincodeInput.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 10) {
+                    this.value = this.value.slice(0, 10);
+                }
+            });
+        }
+
+        // Show success toast
+    @if (TempData["Success"] != null)
+    {
+        <text>
+                const successToast = new bootstrap.Toast(document.getElementById('successToast'));
+                successToast.show();
+        </text>
+    }
+
+        // Show error toast
+    @if (TempData["Error"] != null)
+    {
+        <text>
+                document.getElementById('errorMessage').textContent = '@TempData["Error"]';
+                const errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
+                errorToast.show();
+        </text>
+    }
+    });
+</script>

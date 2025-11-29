@@ -1,0 +1,132 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\views\\user\\getalluser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\views\\user\\getalluser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\controllers\\addtoordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\controllers\\addtoordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\controllers\\userdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\controllers\\userdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|d:\\sem - 5\\.net\\project sem - 5\\mobile_mart_frontend\\my_project\\my_project\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B64694-9C72-4ED0-BA8D-2E04EA624C49}|My_Project\\My_Project.csproj|solutionrelative:my_project\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 635,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAMgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-01T11:51:34.789Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetAllUser.cshtml",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\User\\GetAllUser.cshtml",
+              "RelativeDocumentMoniker": "My_Project\\Views\\User\\GetAllUser.cshtml",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Views\\User\\GetAllUser.cshtml",
+              "RelativeToolTip": "My_Project\\Views\\User\\GetAllUser.cshtml",
+              "ViewState": "AgIAALcBAAAAAAAAAAAEwMsBAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-14T10:16:12.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductModel.cs",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Models\\ProductModel.cs",
+              "RelativeDocumentMoniker": "My_Project\\Models\\ProductModel.cs",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Models\\ProductModel.cs",
+              "RelativeToolTip": "My_Project\\Models\\ProductModel.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAA8wDMAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T13:42:27.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddToOrderController.cs",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\AddToOrderController.cs",
+              "RelativeDocumentMoniker": "My_Project\\Controllers\\AddToOrderController.cs",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\AddToOrderController.cs",
+              "RelativeToolTip": "My_Project\\Controllers\\AddToOrderController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBMAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T12:57:49.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "My_Project\\Controllers\\OrdersController.cs",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "My_Project\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T10:56:35.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserDashboardController.cs",
+              "DocumentMoniker": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\UserDashboardController.cs",
+              "RelativeDocumentMoniker": "My_Project\\Controllers\\UserDashboardController.cs",
+              "ToolTip": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Frontend\\My_Project\\My_Project\\Controllers\\UserDashboardController.cs",
+              "RelativeToolTip": "My_Project\\Controllers\\UserDashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T13:02:09.538Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 191,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

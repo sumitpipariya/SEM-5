@@ -1,0 +1,242 @@
+﻿@model IEnumerable<My_Project.Models.ProductModel>
+
+@{
+    Layout = "_Layout_User";
+    ViewData["Title"] = "Premium Mobile Mart";
+}
+
+<div class="container py-4">
+   
+
+    <!-- Product Grid -->
+    <div class="row g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card h-100 product-card">
+
+                    <!-- Product Image -->
+                    <div class="position-relative">
+                        <span class="brand-badge">@product.BrandName</span>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <img src="@product.ImageUrl"
+                             alt="@product.ProductName"
+                             class="card-img-top product-image" />
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@product.ProductName</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-muted ms-1">(4.5)</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="product-price">₹ @product.Price?.ToString("N2")</span>
+                            <span class="original-price ms-2">₹ @((product.Price * 1.1M)?.ToString("N2"))</span>
+                            <span class="discount-badge">10% off</span>
+                        </div>
+                        <div class="mt-auto">
+                            <a asp-controller="UserDashboard" asp-action="Details" asp-route-id="@product.ProductId"
+                               class="btn view-details-btn">
+                                <i class="fas fa-eye me-2"></i>View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary: #2874f0;
+        --primary-dark: #0b4da1;
+        --accent: #fb641b;
+        --light-gray: #f1f3f6;
+        --dark-gray: #212121;
+        --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --card-hover-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        --success: #22c55e;
+    }
+
+    .hero-section {
+        background: linear-gradient(to right, var(--primary), var(--primary-dark));
+        color: white;
+    }
+
+    .filter-section {
+        background: white;
+        box-shadow: var(--card-shadow);
+    }
+
+    .product-card {
+        background: white;
+        border: none;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        box-shadow: var(--card-shadow);
+        overflow: hidden;
+    }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+    .product-image {
+        height: 220px;
+        object-fit: contain;
+        padding: 1.5rem;
+        background: linear-gradient(to bottom, #f8fafc, var(--light-gray));
+        border-radius: 12px 12px 0 0;
+    }
+
+    .brand-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: var(--primary);
+        color: white;
+        font-weight: 600;
+        font-size: 0.75rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 20px;
+    }
+
+    .wishlist-btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+        border: none;
+    }
+
+        .wishlist-btn:hover {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+
+    .product-price {
+        font-weight: 700;
+        color: var(--primary-dark);
+        font-size: 1.35rem;
+    }
+
+    .original-price {
+        text-decoration: line-through;
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+
+    .discount-badge {
+        background: var(--success);
+        color: white;
+        font-weight: 600;
+        padding: 0.25rem 0.5rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+    }
+
+    .view-details-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0.6rem 1.5rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        width: 100%;
+        text-decoration: none;
+        text-align: center;
+    }
+
+        .view-details-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+    .rating {
+        color: #f59e0b;
+        font-size: 0.9rem;
+    }
+
+    .category-filter {
+        margin-bottom: 1.5rem;
+    }
+
+    .category-btn {
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 0.5rem 1.25rem;
+        margin-right: 0.75rem;
+        margin-bottom: 0.75rem;
+        transition: all 0.2s ease;
+        font-weight: 500;
+        background: white;
+    }
+
+        .category-btn:hover, .category-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+    @@media (max-width: 768px) {
+        .product-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 2rem 1rem !important;
+        }
+    }
+</style>
+
+<script>
+    // Add active class to category buttons
+    document.querySelectorAll('.category-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+        });
+    });
+
+    // Toggle wishlist button
+    document.querySelectorAll('.wishlist-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('far')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                this.style.background = '#fee2e2';
+                this.style.color = '#ef4444';
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                this.style.background = 'white';
+                this.style.color = 'inherit';
+            }
+        });
+    });
+</script>

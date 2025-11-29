@@ -1,0 +1,329 @@
+﻿@model My_Project.Models.OrderModel
+@{
+    ViewData["Title"] = "Add New Order";
+}
+I
+<div class="main" id="main">
+<div class="container-fluid py-5 bg-light min-vh-100 mt-4">
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-10">
+            <!-- Page Header -->
+            <div class="text-center mb-5">
+                <div class="d-inline-flex align-items-center justify-content-center bg-primary bg-gradient rounded-circle shadow mb-3"
+                     style="width: 80px; height: 80px;">
+                    <i class="bx bx-shopping-bag text-white fs-1"></i>
+                </div>
+                <h1 class="display-6 fw-bold mb-2 text-primary">Create New Order</h1>
+                <p class="text-muted fs-5">Add a new order to the TechLux system</p>
+            </div>
+
+            <!-- Main Form Card -->
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <!-- Card Header -->
+                <div class="card-header bg-white border-bottom py-4">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h4 class="mb-0 fw-bold text-primary">Order Information</h4>
+                            <small class="text-muted">Please fill in all required fields marked with *</small>
+                        </div>
+                        <div class="col-auto">
+                                <a asp-controller="Orders" asp-action="GetAllOrder" class="btn btn-outline-secondary rounded-pill px-4">
+                                <i class="bx bx-arrow-back me-2"></i>Back to List
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Body -->
+                <div class="card-body p-5">
+                    <form asp-controller="Orders" asp-action="AddEdit" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="OrderId" />
+                            <input type="hidden" asp-for="UserId" value="@Context.Session.GetInt32("UserID")">
+                        
+                        <div class="row g-4">
+                            @* <!-- Customer Information Section -->
+                            <div class="col-12">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="bg-primary bg-gradient rounded-circle p-2 me-3">
+                                        <i class="bx bx-user text-white fs-5"></i>
+                                    </div>
+                                    <h5 class="mb-0 fw-bold text-warning">Customer Information</h5>
+                                </div>
+                            </div>
+
+                            <!-- Customer -->
+                            <div class="col-md-6">
+                                <label asp-for="UserId" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-user me-2 text-warning"></i>Customer Name *
+                                </label>
+                                <select asp-for="UserId" class="form-select form-select-lg border-0 bg-light rounded-3 shadow-sm"
+                                        asp-items="@(new SelectList(Model?.Users ?? new List<UserModel>(), "UserId", "FullName"))"
+                                        onchange="updateCustomerName()">
+                                    <option value="">Select Customer</option>
+                                </select>
+                                <span asp-validation-for="UserId" class="text-danger small mt-1 d-block"></span>
+                            </div> *@
+@* 
+                            <!-- Full Name -->
+                            <div class="col-md-6">
+                                <label asp-for="FullName" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-id-card me-2 text-warning"></i>Customer Name *
+                                </label>
+                                <input asp-for="FullName" class="form-control form-control-lg border-0 bg-light rounded-3 shadow-sm"
+                                       placeholder="Customer full name" />
+                                <span asp-validation-for="FullName" class="text-danger small mt-1 d-block"></span>
+                            </div> *@
+
+                            <!-- Order Details Section -->
+                            <div class="col-12 mt-5">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="bg-success bg-gradient rounded-circle p-2 me-3">
+                                        <i class="bx bx-receipt text-white fs-5"></i>
+                                    </div>
+                                    <h5 class="mb-0 fw-bold text-warning">Order Details</h5>
+                                </div>
+                            </div>
+
+                            <!-- Order Date -->
+                            <div class="col-md-6">
+                                <label asp-for="OrderDate" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-calendar me-2 text-warning"></i>Order Date *
+                                </label>
+                                <input asp-for="OrderDate" class="form-control form-control-lg border-0 bg-light rounded-3 shadow-sm"
+                                       type="datetime-local" />
+                                <span asp-validation-for="OrderDate" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="col-md-6">
+                                <label asp-for="Status" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-flag me-2 text-warning"></i>Order Status *
+                                </label>
+                                <select asp-for="Status" class="form-select form-select-lg border-0 bg-light rounded-3 shadow-sm">
+                                    <option value="">Select Status</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Processing">Processing</option>
+                                    <option value="Shipped">Shipped</option>
+                                    <option value="Delivered">Delivered</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                    <option value="Returned">Returned</option>
+                                </select>
+                                <span asp-validation-for="Status" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <!-- Total Amount -->
+                            <div class="col-md-6">
+                                <label asp-for="TotalAmount" class="form-label fw-semibold text-dark">
+                                    <i class="bx bx-dollar me-2 text-warning"></i>Total Amount *
+                                </label>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text bg-light border-0 rounded-start-3">$</span>
+                                    <input asp-for="TotalAmount" class="form-control border-0 bg-light rounded-end-3 shadow-sm"
+                                           placeholder="0.00" type="number" step="0.01" min="0" />
+                                </div>
+                                <span asp-validation-for="TotalAmount" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <!-- Order Summary Section -->
+                            <div class="col-12 mt-5">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="bg-info bg-gradient rounded-circle p-2 me-3">
+                                        <i class="bx bx-list-ul text-white fs-5"></i>
+                                    </div>
+                                    <h5 class="mb-0 fw-bold text-warning">Order Summary</h5>
+                                </div>
+                            </div>
+
+                            <!-- Order Summary Display -->
+                            <div class="col-12">
+                                <div class="card bg-light border-0 rounded-3">
+                                    <div class="card-body p-4">
+                                        <div class="row text-center">
+                                            <div class="col-md-3">
+                                                <div class="border-end border-secondary">
+                                                    <h6 class="text-muted mb-1">Order ID</h6>
+                                                    <p class="mb-0 fw-bold" id="orderIdDisplay">Auto-generated</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="border-end border-secondary">
+                                                    <h6 class="text-muted mb-1">Customer</h6>
+                                                    <p class="mb-0 fw-bold" id="customerDisplay">Not selected</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="border-end border-secondary">
+                                                    <h6 class="text-muted mb-1">Status</h6>
+                                                    <p class="mb-0 fw-bold" id="statusDisplay">Not selected</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="text-muted mb-1">Total Amount</h6>
+                                                <p class="mb-0 fw-bold text-success" id="totalDisplay">$0.00</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                                    <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow fw-bold">
+                                        <i class="bx bx-save me-2"></i>Create Order
+                                    </button>
+                                    <button type="reset" class="btn btn-outline-secondary btn-lg px-5 py-3 rounded-pill">
+                                        <i class="bx bx-reset me-2"></i>Reset Form
+                                    </button>
+                                        <a asp-controller="Orders" asp-action="GetAllOrder" class="btn btn-outline-danger btn-lg px-5 py-3 rounded-pill">
+                                        <i class="bx bx-x me-2"></i>Cancel
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Success Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="successToast" class="toast border-0 shadow-lg" role="alert">
+        <div class="toast-header bg-success text-white border-0">
+            <i class="bx bx-check-circle me-2"></i>
+            <strong class="me-auto">Success</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body bg-white">
+            Order created successfully!
+        </div>
+    </div>
+</div>
+
+<!-- Error Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="errorToast" class="toast border-0 shadow-lg" role="alert">
+        <div class="toast-header bg-danger text-white border-0">
+            <i class="bx bx-error-circle me-2"></i>
+            <strong class="me-auto">Error</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body bg-white">
+            <span id="errorMessage">Please check the form for errors and try again.</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Update customer name when customer is selected
+    function updateCustomerName() {
+        const customerSelect = document.querySelector('select[asp-for="UserId"]');
+        const nameInput = document.querySelector('input[asp-for="FullName"]');
+        const selectedOption = customerSelect.options[customerSelect.selectedIndex];
+        
+        if (selectedOption && selectedOption.dataset.name) {
+            nameInput.value = selectedOption.dataset.name;
+            updateOrderSummary();
+        }
+    }
+
+    // Update order summary display
+    function updateOrderSummary() {
+        const customerSelect = document.querySelector('select[asp-for="UserId"]');
+        const statusSelect = document.querySelector('select[asp-for="Status"]');
+        const totalInput = document.querySelector('input[asp-for="TotalAmount"]');
+        
+        // Update customer display
+        const selectedCustomer = customerSelect.options[customerSelect.selectedIndex];
+        document.getElementById('customerDisplay').textContent = 
+            selectedCustomer && selectedCustomer.value ? selectedCustomer.dataset.name : 'Not selected';
+        
+        // Update status display
+        document.getElementById('statusDisplay').textContent = 
+            statusSelect.value || 'Not selected';
+        
+        // Update total display
+        const total = totalInput.value ? parseFloat(totalInput.value).toFixed(2) : '0.00';
+        document.getElementById('totalDisplay').textContent = '$' + total;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        
+        // Set default order date to current date/time
+        const orderDateInput = document.querySelector('input[asp-for="OrderDate"]');
+        if (orderDateInput && !orderDateInput.value) {
+            const now = new Date();
+            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+            orderDateInput.value = now.toISOString().slice(0, 16);
+        }
+        
+        // Form submission handling
+        form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin me-2"></i>Creating Order...';
+            submitBtn.disabled = true;
+            
+            // Re-enable button after 5 seconds (in case of errors)
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 5000);
+        });
+
+        // Reset form functionality
+        const resetBtn = form.querySelector('button[type="reset"]');
+        resetBtn.addEventListener('click', function() {
+            form.reset();
+            // Reset order date to current date/time
+            const now = new Date();
+            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+            orderDateInput.value = now.toISOString().slice(0, 16);
+            updateOrderSummary();
+        });
+
+        // Add event listeners for order summary updates
+        document.querySelector('select[asp-for="UserId"]').addEventListener('change', updateOrderSummary);
+        document.querySelector('select[asp-for="Status"]').addEventListener('change', updateOrderSummary);
+        document.querySelector('input[asp-for="TotalAmount"]').addEventListener('input', updateOrderSummary);
+
+        // Total amount validation
+        const totalInput = document.querySelector('input[asp-for="TotalAmount"]');
+        if (totalInput) {
+            totalInput.addEventListener('input', function() {
+                if (this.value < 0) {
+                    this.value = 0;
+                }
+            });
+        }
+
+        // Initialize order summary
+        updateOrderSummary();
+
+        // Show success toast
+        @if (TempData["Success"] != null)
+        {
+            <text>
+                const successToast = new bootstrap.Toast(document.getElementById('successToast'));
+                successToast.show();
+            </text>
+        }
+
+        // Show error toast
+        @if (TempData["Error"] != null)
+        {
+            <text>
+                document.getElementById('errorMessage').textContent = '@TempData["Error"]';
+                const errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
+                errorToast.show();
+            </text>
+        }
+    });
+</script>

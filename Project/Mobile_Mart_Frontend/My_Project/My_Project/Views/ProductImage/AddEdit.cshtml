@@ -1,0 +1,52 @@
+﻿@model Mobile_Mart.Models.ProductImage
+
+@{
+    ViewData["Title"] = Model.ImageId > 0 ? "Edit Image" : "Add Image";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    <form asp-action="Save" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="ImageId" />
+
+        <div class="mb-3">
+            <label asp-for="ProductId" class="form-label">Product</label>
+            <select asp-for="ProductId" class="form-select" asp-items="ViewBag.ProductList">
+                <option value="">-- Select Product --</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="UserId" class="form-label">User</label>
+            <select asp-for="UserId" class="form-select" asp-items="ViewBag.UserList">
+                <option value="">-- Select User --</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ImageFile" class="form-label">Upload Image</label>
+            <input asp-for="ImageFile" type="file" class="form-control" />
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <div class="mb-3">
+                <img src="@Model.ImageUrl" alt="Current Image" class="img-thumbnail" style="max-height:150px;" />
+            </div>
+        }
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

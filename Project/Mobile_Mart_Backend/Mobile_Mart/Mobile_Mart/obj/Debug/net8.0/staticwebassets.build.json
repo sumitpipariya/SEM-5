@@ -1,0 +1,2597 @@
+{
+  "Version": 1,
+  "Hash": "FYe0+e5xLz48Wi75wsi3Mz4aWPldjWpwcXLAjeLRWdY=",
+  "Source": "Mobile_Mart",
+  "BasePath": "_content/Mobile_Mart",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Mobile_Mart\\wwwroot",
+      "Source": "Mobile_Mart",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\02928ee0-84f6-446e-97fe-9ea9419639fa.png",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/02928ee0-84f6-446e-97fe-9ea9419639fa#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "oi6dew0lo6",
+      "Integrity": "QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\02928ee0-84f6-446e-97fe-9ea9419639fa.png"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\08426271-e522-466b-81c5-42fd3fc3c9e3.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/08426271-e522-466b-81c5-42fd3fc3c9e3#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fqht6p6lry",
+      "Integrity": "B2kRmqItV497iP1bv19nVZqku2yOXMqQzG3sSH4Lzlw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\08426271-e522-466b-81c5-42fd3fc3c9e3.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\1468b2bf-2b0e-4bbc-8363-37ce105d670e.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/1468b2bf-2b0e-4bbc-8363-37ce105d670e#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "emb0f2krv2",
+      "Integrity": "1vFqC4ECSuIiIluNEl+HJncxi/VUJPfXuMXnXoZ6Nx0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\1468b2bf-2b0e-4bbc-8363-37ce105d670e.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\20548bda-f145-427a-80b1-b949ed6b5809.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/20548bda-f145-427a-80b1-b949ed6b5809#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "k6p91y5p3m",
+      "Integrity": "RB9LgVMwux3qdp2BrdkcorZwhnvfD7sg1QgWQUjjFT8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\20548bda-f145-427a-80b1-b949ed6b5809.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\26355542-22b2-4765-8c41-76db2c340936.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/26355542-22b2-4765-8c41-76db2c340936#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8a8czomzqj",
+      "Integrity": "8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\26355542-22b2-4765-8c41-76db2c340936.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\3fb04a6e-d859-47dd-a1d2-3fc32b2fd6c1.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/3fb04a6e-d859-47dd-a1d2-3fc32b2fd6c1#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8a8czomzqj",
+      "Integrity": "8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\3fb04a6e-d859-47dd-a1d2-3fc32b2fd6c1.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\562bc2ff-cc56-4ee9-8576-217f980640e4.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/562bc2ff-cc56-4ee9-8576-217f980640e4#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wpmlvmoupg",
+      "Integrity": "vAJeeyofBAS0P37oRirxp+UXOCRFsg2HcV9axYCMamE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\562bc2ff-cc56-4ee9-8576-217f980640e4.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\5c53baee-7e27-44c0-8220-22bc5c3e9aa5.png",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/5c53baee-7e27-44c0-8220-22bc5c3e9aa5#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1idm83tcxh",
+      "Integrity": "J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\5c53baee-7e27-44c0-8220-22bc5c3e9aa5.png"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\5d43a09c-3f8a-499f-819a-63301407d1e9.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/5d43a09c-3f8a-499f-819a-63301407d1e9#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8a8czomzqj",
+      "Integrity": "8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\5d43a09c-3f8a-499f-819a-63301407d1e9.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\6e30b838-84b6-473f-83a5-8e0ff80ace14.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/6e30b838-84b6-473f-83a5-8e0ff80ace14#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1qdfw40tnu",
+      "Integrity": "xxwKK6W1fyHz9UxPcwNIIqSS9z5tdEJclKUMt4Q4F98=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\6e30b838-84b6-473f-83a5-8e0ff80ace14.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\82be2cdd-9009-4c06-b929-f5b69ceaa453.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/82be2cdd-9009-4c06-b929-f5b69ceaa453#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mhu3m6nb46",
+      "Integrity": "5mTGtZC+Us3sgho4PY9GxrpxVwZh64HHfsX9zjzaaCg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\82be2cdd-9009-4c06-b929-f5b69ceaa453.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\878b5dec-ce49-4944-9e64-53fac5e435b4.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/878b5dec-ce49-4944-9e64-53fac5e435b4#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qjeagkux2h",
+      "Integrity": "2pdJV/lNLDivbX3MrRs2DWAuPftoOMqgErT9ByFsH54=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\878b5dec-ce49-4944-9e64-53fac5e435b4.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\8853ca6f-04fc-4657-b9ca-440b0ba2ccc9.png",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/8853ca6f-04fc-4657-b9ca-440b0ba2ccc9#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "oi6dew0lo6",
+      "Integrity": "QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\8853ca6f-04fc-4657-b9ca-440b0ba2ccc9.png"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\97556ae1-930d-4744-962b-e747bc48a4ac.png",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/97556ae1-930d-4744-962b-e747bc48a4ac#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "pahftgef4z",
+      "Integrity": "USIlW6+rMhJ87Tp17Kq1tRs3IEUbT4DTOyZaTF6SgiE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\97556ae1-930d-4744-962b-e747bc48a4ac.png"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\99037f7e-54b3-46aa-8e52-0d66ce678f2f.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/99037f7e-54b3-46aa-8e52-0d66ce678f2f#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "35jbp66bsv",
+      "Integrity": "WRlobSc7GsHLcdX2L+bsFx1xRuUnyPMUWkBjEhgePrI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\99037f7e-54b3-46aa-8e52-0d66ce678f2f.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\a90a72b1-ef2b-4f00-be6e-f722f7b50163.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/a90a72b1-ef2b-4f00-be6e-f722f7b50163#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "klpsmt1dco",
+      "Integrity": "aNVuYT4lX8P9odkp4NBS9wLeqXQbFR/uVVuisKMT++o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\a90a72b1-ef2b-4f00-be6e-f722f7b50163.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\b52803aa-dd5e-41b7-9db2-c3d4a25caf09.png",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/b52803aa-dd5e-41b7-9db2-c3d4a25caf09#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1idm83tcxh",
+      "Integrity": "J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\b52803aa-dd5e-41b7-9db2-c3d4a25caf09.png"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\c06fee7b-82b0-4dc2-a57d-66d87c11a260.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/c06fee7b-82b0-4dc2-a57d-66d87c11a260#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "tmnidq0107",
+      "Integrity": "26L2tH5DPrfLyfyTW84DSQUiQzY6nOwXlavyVmGnndA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\c06fee7b-82b0-4dc2-a57d-66d87c11a260.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\c5561955-e5be-46f2-8542-946738e9528d.jpg",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/c5561955-e5be-46f2-8542-946738e9528d#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "78ww8dmv1h",
+      "Integrity": "2RiH8Y3WI7nRDaCfiVnxJ+EVlU2WJlpGsJH9ArqLjBU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\c5561955-e5be-46f2-8542-946738e9528d.jpg"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\c6342602-00ab-4463-8546-59d2b8a3cbd3.png",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/c6342602-00ab-4463-8546-59d2b8a3cbd3#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "pahftgef4z",
+      "Integrity": "USIlW6+rMhJ87Tp17Kq1tRs3IEUbT4DTOyZaTF6SgiE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\c6342602-00ab-4463-8546-59d2b8a3cbd3.png"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\d3e8f323-ebc1-4d9e-92e4-e38ef4e5b163.png",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/d3e8f323-ebc1-4d9e-92e4-e38ef4e5b163#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "oi6dew0lo6",
+      "Integrity": "QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\d3e8f323-ebc1-4d9e-92e4-e38ef4e5b163.png"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\e6eca720-5584-4040-a5f2-db883ca3b8c0.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/e6eca720-5584-4040-a5f2-db883ca3b8c0#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8a8czomzqj",
+      "Integrity": "8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\e6eca720-5584-4040-a5f2-db883ca3b8c0.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\edc2869e-1b37-4a2a-9790-4066eb9b75cf.png",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/edc2869e-1b37-4a2a-9790-4066eb9b75cf#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1idm83tcxh",
+      "Integrity": "J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\edc2869e-1b37-4a2a-9790-4066eb9b75cf.png"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\f98b4d35-ffd0-4f04-b7b1-e662b5d46d3b.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/f98b4d35-ffd0-4f04-b7b1-e662b5d46d3b#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qouk9uuobi",
+      "Integrity": "pmZ+R8Bef1i570IM94hGi7TAcPfFYGy3r6q64XmcmRA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\f98b4d35-ffd0-4f04-b7b1-e662b5d46d3b.webp"
+    },
+    {
+      "Identity": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\faecd308-3de3-4f47-902d-a8414d0d571a.webp",
+      "SourceId": "Mobile_Mart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\",
+      "BasePath": "_content/Mobile_Mart",
+      "RelativePath": "Images/faecd308-3de3-4f47-902d-a8414d0d571a#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xz5r4hy821",
+      "Integrity": "4yBpy2hqeiyiK+yls4NE/4oBX1Ju3YW0/87z+1X9qtY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\faecd308-3de3-4f47-902d-a8414d0d571a.webp"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "Images/02928ee0-84f6-446e-97fe-9ea9419639fa.oi6dew0lo6.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\02928ee0-84f6-446e-97fe-9ea9419639fa.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17925"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 13:05:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oi6dew0lo6"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/02928ee0-84f6-446e-97fe-9ea9419639fa.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o="
+        }
+      ]
+    },
+    {
+      "Route": "Images/02928ee0-84f6-446e-97fe-9ea9419639fa.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\02928ee0-84f6-446e-97fe-9ea9419639fa.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17925"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 13:05:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o="
+        }
+      ]
+    },
+    {
+      "Route": "Images/08426271-e522-466b-81c5-42fd3fc3c9e3.fqht6p6lry.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\08426271-e522-466b-81c5-42fd3fc3c9e3.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5092"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B2kRmqItV497iP1bv19nVZqku2yOXMqQzG3sSH4Lzlw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 05 Sep 2025 04:33:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fqht6p6lry"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/08426271-e522-466b-81c5-42fd3fc3c9e3.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-B2kRmqItV497iP1bv19nVZqku2yOXMqQzG3sSH4Lzlw="
+        }
+      ]
+    },
+    {
+      "Route": "Images/08426271-e522-466b-81c5-42fd3fc3c9e3.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\08426271-e522-466b-81c5-42fd3fc3c9e3.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5092"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B2kRmqItV497iP1bv19nVZqku2yOXMqQzG3sSH4Lzlw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 05 Sep 2025 04:33:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-B2kRmqItV497iP1bv19nVZqku2yOXMqQzG3sSH4Lzlw="
+        }
+      ]
+    },
+    {
+      "Route": "Images/1468b2bf-2b0e-4bbc-8363-37ce105d670e.emb0f2krv2.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\1468b2bf-2b0e-4bbc-8363-37ce105d670e.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6756"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1vFqC4ECSuIiIluNEl+HJncxi/VUJPfXuMXnXoZ6Nx0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:23:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "emb0f2krv2"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/1468b2bf-2b0e-4bbc-8363-37ce105d670e.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1vFqC4ECSuIiIluNEl+HJncxi/VUJPfXuMXnXoZ6Nx0="
+        }
+      ]
+    },
+    {
+      "Route": "Images/1468b2bf-2b0e-4bbc-8363-37ce105d670e.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\1468b2bf-2b0e-4bbc-8363-37ce105d670e.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6756"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1vFqC4ECSuIiIluNEl+HJncxi/VUJPfXuMXnXoZ6Nx0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:23:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1vFqC4ECSuIiIluNEl+HJncxi/VUJPfXuMXnXoZ6Nx0="
+        }
+      ]
+    },
+    {
+      "Route": "Images/20548bda-f145-427a-80b1-b949ed6b5809.k6p91y5p3m.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\20548bda-f145-427a-80b1-b949ed6b5809.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3248"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RB9LgVMwux3qdp2BrdkcorZwhnvfD7sg1QgWQUjjFT8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:14:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k6p91y5p3m"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/20548bda-f145-427a-80b1-b949ed6b5809.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RB9LgVMwux3qdp2BrdkcorZwhnvfD7sg1QgWQUjjFT8="
+        }
+      ]
+    },
+    {
+      "Route": "Images/20548bda-f145-427a-80b1-b949ed6b5809.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\20548bda-f145-427a-80b1-b949ed6b5809.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3248"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RB9LgVMwux3qdp2BrdkcorZwhnvfD7sg1QgWQUjjFT8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:14:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RB9LgVMwux3qdp2BrdkcorZwhnvfD7sg1QgWQUjjFT8="
+        }
+      ]
+    },
+    {
+      "Route": "Images/26355542-22b2-4765-8c41-76db2c340936.8a8czomzqj.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\26355542-22b2-4765-8c41-76db2c340936.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9718"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 17:08:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8a8czomzqj"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/26355542-22b2-4765-8c41-76db2c340936.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4="
+        }
+      ]
+    },
+    {
+      "Route": "Images/26355542-22b2-4765-8c41-76db2c340936.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\26355542-22b2-4765-8c41-76db2c340936.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9718"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 17:08:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4="
+        }
+      ]
+    },
+    {
+      "Route": "Images/3fb04a6e-d859-47dd-a1d2-3fc32b2fd6c1.8a8czomzqj.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\3fb04a6e-d859-47dd-a1d2-3fc32b2fd6c1.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9718"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 17:08:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8a8czomzqj"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/3fb04a6e-d859-47dd-a1d2-3fc32b2fd6c1.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4="
+        }
+      ]
+    },
+    {
+      "Route": "Images/3fb04a6e-d859-47dd-a1d2-3fc32b2fd6c1.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\3fb04a6e-d859-47dd-a1d2-3fc32b2fd6c1.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9718"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 17:08:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4="
+        }
+      ]
+    },
+    {
+      "Route": "Images/562bc2ff-cc56-4ee9-8576-217f980640e4.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\562bc2ff-cc56-4ee9-8576-217f980640e4.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5116"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vAJeeyofBAS0P37oRirxp+UXOCRFsg2HcV9axYCMamE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:24:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vAJeeyofBAS0P37oRirxp+UXOCRFsg2HcV9axYCMamE="
+        }
+      ]
+    },
+    {
+      "Route": "Images/562bc2ff-cc56-4ee9-8576-217f980640e4.wpmlvmoupg.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\562bc2ff-cc56-4ee9-8576-217f980640e4.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5116"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vAJeeyofBAS0P37oRirxp+UXOCRFsg2HcV9axYCMamE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:24:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wpmlvmoupg"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/562bc2ff-cc56-4ee9-8576-217f980640e4.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vAJeeyofBAS0P37oRirxp+UXOCRFsg2HcV9axYCMamE="
+        }
+      ]
+    },
+    {
+      "Route": "Images/5c53baee-7e27-44c0-8220-22bc5c3e9aa5.1idm83tcxh.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\5c53baee-7e27-44c0-8220-22bc5c3e9aa5.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "387678"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:50:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1idm83tcxh"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/5c53baee-7e27-44c0-8220-22bc5c3e9aa5.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY="
+        }
+      ]
+    },
+    {
+      "Route": "Images/5c53baee-7e27-44c0-8220-22bc5c3e9aa5.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\5c53baee-7e27-44c0-8220-22bc5c3e9aa5.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "387678"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:50:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY="
+        }
+      ]
+    },
+    {
+      "Route": "Images/5d43a09c-3f8a-499f-819a-63301407d1e9.8a8czomzqj.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\5d43a09c-3f8a-499f-819a-63301407d1e9.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9718"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 16:42:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8a8czomzqj"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/5d43a09c-3f8a-499f-819a-63301407d1e9.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4="
+        }
+      ]
+    },
+    {
+      "Route": "Images/5d43a09c-3f8a-499f-819a-63301407d1e9.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\5d43a09c-3f8a-499f-819a-63301407d1e9.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9718"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 16:42:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4="
+        }
+      ]
+    },
+    {
+      "Route": "Images/6e30b838-84b6-473f-83a5-8e0ff80ace14.1qdfw40tnu.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\6e30b838-84b6-473f-83a5-8e0ff80ace14.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9076"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xxwKK6W1fyHz9UxPcwNIIqSS9z5tdEJclKUMt4Q4F98=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:26:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1qdfw40tnu"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/6e30b838-84b6-473f-83a5-8e0ff80ace14.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xxwKK6W1fyHz9UxPcwNIIqSS9z5tdEJclKUMt4Q4F98="
+        }
+      ]
+    },
+    {
+      "Route": "Images/6e30b838-84b6-473f-83a5-8e0ff80ace14.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\6e30b838-84b6-473f-83a5-8e0ff80ace14.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9076"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xxwKK6W1fyHz9UxPcwNIIqSS9z5tdEJclKUMt4Q4F98=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:26:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xxwKK6W1fyHz9UxPcwNIIqSS9z5tdEJclKUMt4Q4F98="
+        }
+      ]
+    },
+    {
+      "Route": "Images/82be2cdd-9009-4c06-b929-f5b69ceaa453.mhu3m6nb46.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\82be2cdd-9009-4c06-b929-f5b69ceaa453.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3986"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5mTGtZC+Us3sgho4PY9GxrpxVwZh64HHfsX9zjzaaCg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 07 Sep 2025 10:26:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mhu3m6nb46"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/82be2cdd-9009-4c06-b929-f5b69ceaa453.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5mTGtZC+Us3sgho4PY9GxrpxVwZh64HHfsX9zjzaaCg="
+        }
+      ]
+    },
+    {
+      "Route": "Images/82be2cdd-9009-4c06-b929-f5b69ceaa453.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\82be2cdd-9009-4c06-b929-f5b69ceaa453.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3986"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5mTGtZC+Us3sgho4PY9GxrpxVwZh64HHfsX9zjzaaCg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 07 Sep 2025 10:26:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5mTGtZC+Us3sgho4PY9GxrpxVwZh64HHfsX9zjzaaCg="
+        }
+      ]
+    },
+    {
+      "Route": "Images/878b5dec-ce49-4944-9e64-53fac5e435b4.qjeagkux2h.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\878b5dec-ce49-4944-9e64-53fac5e435b4.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26050"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2pdJV/lNLDivbX3MrRs2DWAuPftoOMqgErT9ByFsH54=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 05 Sep 2025 04:28:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qjeagkux2h"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/878b5dec-ce49-4944-9e64-53fac5e435b4.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2pdJV/lNLDivbX3MrRs2DWAuPftoOMqgErT9ByFsH54="
+        }
+      ]
+    },
+    {
+      "Route": "Images/878b5dec-ce49-4944-9e64-53fac5e435b4.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\878b5dec-ce49-4944-9e64-53fac5e435b4.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26050"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2pdJV/lNLDivbX3MrRs2DWAuPftoOMqgErT9ByFsH54=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 05 Sep 2025 04:28:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2pdJV/lNLDivbX3MrRs2DWAuPftoOMqgErT9ByFsH54="
+        }
+      ]
+    },
+    {
+      "Route": "Images/8853ca6f-04fc-4657-b9ca-440b0ba2ccc9.oi6dew0lo6.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\8853ca6f-04fc-4657-b9ca-440b0ba2ccc9.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17925"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 13:04:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oi6dew0lo6"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/8853ca6f-04fc-4657-b9ca-440b0ba2ccc9.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o="
+        }
+      ]
+    },
+    {
+      "Route": "Images/8853ca6f-04fc-4657-b9ca-440b0ba2ccc9.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\8853ca6f-04fc-4657-b9ca-440b0ba2ccc9.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17925"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 13:04:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o="
+        }
+      ]
+    },
+    {
+      "Route": "Images/97556ae1-930d-4744-962b-e747bc48a4ac.pahftgef4z.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\97556ae1-930d-4744-962b-e747bc48a4ac.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "54726"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"USIlW6+rMhJ87Tp17Kq1tRs3IEUbT4DTOyZaTF6SgiE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:35:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pahftgef4z"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/97556ae1-930d-4744-962b-e747bc48a4ac.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-USIlW6+rMhJ87Tp17Kq1tRs3IEUbT4DTOyZaTF6SgiE="
+        }
+      ]
+    },
+    {
+      "Route": "Images/97556ae1-930d-4744-962b-e747bc48a4ac.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\97556ae1-930d-4744-962b-e747bc48a4ac.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "54726"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"USIlW6+rMhJ87Tp17Kq1tRs3IEUbT4DTOyZaTF6SgiE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:35:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-USIlW6+rMhJ87Tp17Kq1tRs3IEUbT4DTOyZaTF6SgiE="
+        }
+      ]
+    },
+    {
+      "Route": "Images/99037f7e-54b3-46aa-8e52-0d66ce678f2f.35jbp66bsv.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\99037f7e-54b3-46aa-8e52-0d66ce678f2f.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4844"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WRlobSc7GsHLcdX2L+bsFx1xRuUnyPMUWkBjEhgePrI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:15:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "35jbp66bsv"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/99037f7e-54b3-46aa-8e52-0d66ce678f2f.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WRlobSc7GsHLcdX2L+bsFx1xRuUnyPMUWkBjEhgePrI="
+        }
+      ]
+    },
+    {
+      "Route": "Images/99037f7e-54b3-46aa-8e52-0d66ce678f2f.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\99037f7e-54b3-46aa-8e52-0d66ce678f2f.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4844"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WRlobSc7GsHLcdX2L+bsFx1xRuUnyPMUWkBjEhgePrI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:15:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WRlobSc7GsHLcdX2L+bsFx1xRuUnyPMUWkBjEhgePrI="
+        }
+      ]
+    },
+    {
+      "Route": "Images/a90a72b1-ef2b-4f00-be6e-f722f7b50163.klpsmt1dco.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\a90a72b1-ef2b-4f00-be6e-f722f7b50163.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4504"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aNVuYT4lX8P9odkp4NBS9wLeqXQbFR/uVVuisKMT++o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:11:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "klpsmt1dco"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/a90a72b1-ef2b-4f00-be6e-f722f7b50163.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aNVuYT4lX8P9odkp4NBS9wLeqXQbFR/uVVuisKMT++o="
+        }
+      ]
+    },
+    {
+      "Route": "Images/a90a72b1-ef2b-4f00-be6e-f722f7b50163.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\a90a72b1-ef2b-4f00-be6e-f722f7b50163.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4504"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aNVuYT4lX8P9odkp4NBS9wLeqXQbFR/uVVuisKMT++o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:11:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aNVuYT4lX8P9odkp4NBS9wLeqXQbFR/uVVuisKMT++o="
+        }
+      ]
+    },
+    {
+      "Route": "Images/b52803aa-dd5e-41b7-9db2-c3d4a25caf09.1idm83tcxh.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\b52803aa-dd5e-41b7-9db2-c3d4a25caf09.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "387678"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:50:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1idm83tcxh"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/b52803aa-dd5e-41b7-9db2-c3d4a25caf09.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY="
+        }
+      ]
+    },
+    {
+      "Route": "Images/b52803aa-dd5e-41b7-9db2-c3d4a25caf09.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\b52803aa-dd5e-41b7-9db2-c3d4a25caf09.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "387678"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:50:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY="
+        }
+      ]
+    },
+    {
+      "Route": "Images/c06fee7b-82b0-4dc2-a57d-66d87c11a260.tmnidq0107.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\c06fee7b-82b0-4dc2-a57d-66d87c11a260.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8876"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"26L2tH5DPrfLyfyTW84DSQUiQzY6nOwXlavyVmGnndA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:25:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tmnidq0107"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/c06fee7b-82b0-4dc2-a57d-66d87c11a260.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-26L2tH5DPrfLyfyTW84DSQUiQzY6nOwXlavyVmGnndA="
+        }
+      ]
+    },
+    {
+      "Route": "Images/c06fee7b-82b0-4dc2-a57d-66d87c11a260.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\c06fee7b-82b0-4dc2-a57d-66d87c11a260.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8876"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"26L2tH5DPrfLyfyTW84DSQUiQzY6nOwXlavyVmGnndA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:25:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-26L2tH5DPrfLyfyTW84DSQUiQzY6nOwXlavyVmGnndA="
+        }
+      ]
+    },
+    {
+      "Route": "Images/c5561955-e5be-46f2-8542-946738e9528d.78ww8dmv1h.jpg",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\c5561955-e5be-46f2-8542-946738e9528d.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "29728"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2RiH8Y3WI7nRDaCfiVnxJ+EVlU2WJlpGsJH9ArqLjBU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 07 Sep 2025 10:33:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "78ww8dmv1h"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/c5561955-e5be-46f2-8542-946738e9528d.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2RiH8Y3WI7nRDaCfiVnxJ+EVlU2WJlpGsJH9ArqLjBU="
+        }
+      ]
+    },
+    {
+      "Route": "Images/c5561955-e5be-46f2-8542-946738e9528d.jpg",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\c5561955-e5be-46f2-8542-946738e9528d.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "29728"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2RiH8Y3WI7nRDaCfiVnxJ+EVlU2WJlpGsJH9ArqLjBU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 07 Sep 2025 10:33:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2RiH8Y3WI7nRDaCfiVnxJ+EVlU2WJlpGsJH9ArqLjBU="
+        }
+      ]
+    },
+    {
+      "Route": "Images/c6342602-00ab-4463-8546-59d2b8a3cbd3.pahftgef4z.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\c6342602-00ab-4463-8546-59d2b8a3cbd3.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "54726"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"USIlW6+rMhJ87Tp17Kq1tRs3IEUbT4DTOyZaTF6SgiE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:36:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pahftgef4z"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/c6342602-00ab-4463-8546-59d2b8a3cbd3.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-USIlW6+rMhJ87Tp17Kq1tRs3IEUbT4DTOyZaTF6SgiE="
+        }
+      ]
+    },
+    {
+      "Route": "Images/c6342602-00ab-4463-8546-59d2b8a3cbd3.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\c6342602-00ab-4463-8546-59d2b8a3cbd3.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "54726"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"USIlW6+rMhJ87Tp17Kq1tRs3IEUbT4DTOyZaTF6SgiE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:36:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-USIlW6+rMhJ87Tp17Kq1tRs3IEUbT4DTOyZaTF6SgiE="
+        }
+      ]
+    },
+    {
+      "Route": "Images/d3e8f323-ebc1-4d9e-92e4-e38ef4e5b163.oi6dew0lo6.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\d3e8f323-ebc1-4d9e-92e4-e38ef4e5b163.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17925"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:04:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oi6dew0lo6"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/d3e8f323-ebc1-4d9e-92e4-e38ef4e5b163.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o="
+        }
+      ]
+    },
+    {
+      "Route": "Images/d3e8f323-ebc1-4d9e-92e4-e38ef4e5b163.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\d3e8f323-ebc1-4d9e-92e4-e38ef4e5b163.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17925"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:04:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QPBfEHdZ6WYFXrLwg0cdHJFtzvvk81B8E5KFnmBPv/o="
+        }
+      ]
+    },
+    {
+      "Route": "Images/e6eca720-5584-4040-a5f2-db883ca3b8c0.8a8czomzqj.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\e6eca720-5584-4040-a5f2-db883ca3b8c0.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9718"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 16:44:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8a8czomzqj"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/e6eca720-5584-4040-a5f2-db883ca3b8c0.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4="
+        }
+      ]
+    },
+    {
+      "Route": "Images/e6eca720-5584-4040-a5f2-db883ca3b8c0.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\e6eca720-5584-4040-a5f2-db883ca3b8c0.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9718"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 16:44:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8DfNZlShdVsS5bsUEFSlqoLNNHGvjM2Cfe4m2dz5yz4="
+        }
+      ]
+    },
+    {
+      "Route": "Images/edc2869e-1b37-4a2a-9790-4066eb9b75cf.1idm83tcxh.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\edc2869e-1b37-4a2a-9790-4066eb9b75cf.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "387678"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:52:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1idm83tcxh"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/edc2869e-1b37-4a2a-9790-4066eb9b75cf.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY="
+        }
+      ]
+    },
+    {
+      "Route": "Images/edc2869e-1b37-4a2a-9790-4066eb9b75cf.png",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\edc2869e-1b37-4a2a-9790-4066eb9b75cf.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "387678"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 01 Sep 2025 12:52:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-J07e7PXznP3x21wzGdWagrMnlf58PFa16XxibcFqARY="
+        }
+      ]
+    },
+    {
+      "Route": "Images/f98b4d35-ffd0-4f04-b7b1-e662b5d46d3b.qouk9uuobi.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\f98b4d35-ffd0-4f04-b7b1-e662b5d46d3b.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8490"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pmZ+R8Bef1i570IM94hGi7TAcPfFYGy3r6q64XmcmRA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 17:14:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qouk9uuobi"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/f98b4d35-ffd0-4f04-b7b1-e662b5d46d3b.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pmZ+R8Bef1i570IM94hGi7TAcPfFYGy3r6q64XmcmRA="
+        }
+      ]
+    },
+    {
+      "Route": "Images/f98b4d35-ffd0-4f04-b7b1-e662b5d46d3b.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\f98b4d35-ffd0-4f04-b7b1-e662b5d46d3b.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8490"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pmZ+R8Bef1i570IM94hGi7TAcPfFYGy3r6q64XmcmRA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 17:14:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pmZ+R8Bef1i570IM94hGi7TAcPfFYGy3r6q64XmcmRA="
+        }
+      ]
+    },
+    {
+      "Route": "Images/faecd308-3de3-4f47-902d-a8414d0d571a.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\faecd308-3de3-4f47-902d-a8414d0d571a.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6378"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4yBpy2hqeiyiK+yls4NE/4oBX1Ju3YW0/87z+1X9qtY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:21:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4yBpy2hqeiyiK+yls4NE/4oBX1Ju3YW0/87z+1X9qtY="
+        }
+      ]
+    },
+    {
+      "Route": "Images/faecd308-3de3-4f47-902d-a8414d0d571a.xz5r4hy821.webp",
+      "AssetFile": "D:\\SEM - 5\\.NET\\PROJECT SEM - 5\\Mobile_Mart_Backend\\Mobile_Mart\\Mobile_Mart\\wwwroot\\Images\\faecd308-3de3-4f47-902d-a8414d0d571a.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6378"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4yBpy2hqeiyiK+yls4NE/4oBX1Ju3YW0/87z+1X9qtY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 04 Sep 2025 13:21:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xz5r4hy821"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/faecd308-3de3-4f47-902d-a8414d0d571a.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4yBpy2hqeiyiK+yls4NE/4oBX1Ju3YW0/87z+1X9qtY="
+        }
+      ]
+    }
+  ]
+}

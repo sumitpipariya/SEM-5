@@ -1,0 +1,258 @@
+﻿@model My_Project.Models.BrandModel
+
+@{
+    ViewData["Title"] = "Add New Brand";
+}
+
+<div class="main" id="main">
+    <div class="container-fluid py-5 bg-light min-vh-100 mt-4">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10">
+                <!-- Page Header -->
+                <div class="text-center mb-5">
+                    <div class="d-inline-flex align-items-center justify-content-center bg-warning bg-gradient rounded-circle shadow mb-3"
+                         style="width: 80px; height: 80px;">
+                        <i class="bx bx-tag text-white fs-1"></i>
+                    </div>
+                    <h1 class="display-6 fw-bold mb-2 text-primary">Create New Brand</h1>
+                    <p class="text-muted fs-5">Add a new product brand to the TechLux catalog</p>
+                </div>
+
+                <!-- Main Form Card -->
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                    <!-- Card Header -->
+                    <div class="card-header bg-white border-bottom py-4">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="mb-0 fw-bold text-primary">Brand Information</h4>
+                                <small class="text-muted">Please fill in all required fields marked with *</small>
+                            </div>
+                            <div class="col-auto">
+                                <a asp-controller="Brand" asp-action="GetAllBrand" class="btn btn-outline-secondary rounded-pill px-4">
+                                    <i class="bx bx-arrow-back me-2"></i>Back to List
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Body -->
+                    <div class="card-body p-5">
+                        <form asp-controller="Brand" asp-action="AddEdit" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" asp-for="BrandId" />
+                            <input type="hidden" asp-for="UserId" value="@Context.Session.GetInt32("UserID")">
+                            <div class="row g-4">
+                                <!-- Basic Information Section -->
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="bg-primary bg-gradient rounded-circle p-2 me-3">
+                                            <i class="bx bx-info-circle text-white fs-5"></i>
+                                        </div>
+                                        <h5 class="mb-0 fw-bold text-warning">Basic Information</h5>
+                                    </div>
+                                </div>
+
+                                <!-- Brand Name -->
+                                <div class="col-md-8">
+                                    <label asp-for="BrandName" class="form-label fw-semibold text-dark">
+                                        <i class="bx bx-tag me-2 text-warning"></i>Brand Name *
+                                    </label>
+                                    <input asp-for="BrandName" class="form-control form-control-lg border-0 bg-light rounded-3 shadow-sm"
+                                           placeholder="Enter brand name (e.g., Samsung, Apple, Nike)" />
+                                    <span asp-validation-for="BrandName" class="text-danger small mt-1 d-block"></span>
+                                    <small class="text-muted">Choose a descriptive name that clearly identifies the product brand</small>
+                                </div>
+
+                                <!-- Brand Preview Section -->
+                                <div class="col-12 mt-5">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="bg-info bg-gradient rounded-circle p-2 me-3">
+                                            <i class="bx bx-show text-white fs-5"></i>
+                                        </div>
+                                        <h5 class="mb-0 fw-bold text-warning">Brand Preview</h5>
+                                    </div>
+                                </div>
+
+                                <!-- Brand Preview Card -->
+                                <div class="col-12">
+                                    <div class="card bg-gradient-light border-0 rounded-3">
+                                        <div class="card-body p-4">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-2 text-center">
+                                                    <div class="bg-warning bg-gradient rounded-circle p-3 d-inline-flex">
+                                                        <i class="bx bx-tag text-white fs-2"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h5 class="mb-1 fw-bold" id="brandPreviewName">Brand Name</h5>
+                                                    <p class="text-muted mb-0">Brand ID: <span id="brandPreviewId">Auto-generated</span></p>
+                                                    <small class="text-muted">Created by: <span id="brandPreviewUser">Not selected</span></small>
+                                                </div>
+                                                <div class="col-md-4 text-end">
+                                                    <span class="badge bg-success fs-6 px-3 py-2">Active</span>
+                                                    <p class="text-muted small mb-0 mt-2">Ready to assign products</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Popular Brands Section -->
+                                <div class="col-12 mt-5">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="bg-success bg-gradient rounded-circle p-2 me-3">
+                                            <i class="bx bx-trending-up text-white fs-5"></i>
+                                        </div>
+                                        <h5 class="mb-0 fw-bold text-warning">Popular Brands</h5>
+                                    </div>
+                                </div>
+
+                                <!-- Popular Brands Display -->
+                                <div class="col-12">
+                                    <div class="row g-3">
+                                        <div class="col-md-3">
+                                            <div class="card border-0 bg-light text-center p-3">
+                                                <i class="bx bx-mobile-alt text-primary fs-2 mb-2"></i>
+                                                <h6 class="mb-0">Samsung</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card border-0 bg-light text-center p-3">
+                                                <i class="bx bx-laptop text-info fs-2 mb-2"></i>
+                                                <h6 class="mb-0">Apple</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card border-0 bg-light text-center p-3">
+                                                <i class="bx bx-headphone text-success fs-2 mb-2"></i>
+                                                <h6 class="mb-0">Sony</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card border-0 bg-light text-center p-3">
+                                                <i class="bx bx-joystick text-warning fs-2 mb-2"></i>
+                                                <h6 class="mb-0">Microsoft</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="row mt-5">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                                        <button type="submit" class="btn btn-warning btn-lg px-5 py-3 rounded-pill shadow fw-bold">
+                                            <i class="bx bx-save me-2"></i>Save Brand
+                                        </button>
+                                        <button type="reset" class="btn btn-outline-secondary btn-lg px-5 py-3 rounded-pill">
+                                            <i class="bx bx-reset me-2"></i>Reset Form
+                                        </button>
+                                        <a asp-controller="Brand" asp-action="GetAllBrand" class="btn btn-outline-danger btn-lg px-5 py-3 rounded-pill">
+                                            <i class="bx bx-x me-2"></i>Cancel
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="successToast" class="toast border-0 shadow-lg" role="alert">
+        <div class="toast-header bg-success text-white border-0">
+            <i class="bx bx-check-circle me-2"></i>
+            <strong class="me-auto">Success</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body bg-white">
+            Brand created successfully!
+        </div>
+    </div>
+</div>
+
+<!-- Error Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="errorToast" class="toast border-0 shadow-lg" role="alert">
+        <div class="toast-header bg-danger text-white border-0">
+            <i class="bx bx-error-circle me-2"></i>
+            <strong class="me-auto">Error</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body bg-white">
+            <span id="errorMessage">Please check the form for errors and try again.</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateBrandPreview() {
+        const brandNameInput = document.querySelector('input[asp-for="BrandName"]');
+        const userSelect = document.querySelector('select[asp-for="UserId"]');
+
+        const brandName = brandNameInput.value || 'Brand Name';
+        document.getElementById('brandPreviewName').textContent = brandName;
+
+        const selectedUser = userSelect.options[userSelect.selectedIndex];
+        const userName = selectedUser && selectedUser.value ? selectedUser.text : 'Not selected';
+        document.getElementById('brandPreviewUser').textContent = userName;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin me-2"></i>Creating Brand...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 5000);
+        });
+
+        const resetBtn = form.querySelector('button[type="reset"]');
+        resetBtn.addEventListener('click', function() {
+            form.reset();
+            updateBrandPreview();
+        });
+
+        document.querySelector('input[asp-for="BrandName"]').addEventListener('input', updateBrandPreview);
+        document.querySelector('select[asp-for="UserId"]').addEventListener('change', updateBrandPreview);
+
+        const brandNameInput = document.querySelector('input[asp-for="BrandName"]');
+        if (brandNameInput) {
+            brandNameInput.addEventListener('input', function() {
+                this.value = this.value.replace(/\b\w/g, function(char) {
+                    return char.toUpperCase();
+                });
+            });
+        }
+
+        updateBrandPreview();
+
+    @if (TempData["Success"] != null)
+    {
+        <text>
+                    const successToast = new bootstrap.Toast(document.getElementById('successToast'));
+                    successToast.show();
+        </text>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <text>
+                    document.getElementById('errorMessage').textContent = '@TempData["Error"]';
+                    const errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
+                    errorToast.show();
+        </text>
+    }
+    });
+</script>
